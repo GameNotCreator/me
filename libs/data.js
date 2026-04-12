@@ -155,7 +155,7 @@ export const projectsData = [
       
     ],
     imageUrl: six,
-    link: "https://interact-club-marsa-mind.vercel.app/",
+    link: "https://tunisian-pass.tn/",
   },
 ];
 
