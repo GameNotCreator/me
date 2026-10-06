@@ -1,16 +1,21 @@
 "use client";
+
+import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
 import { skillsData } from "@/libs/data";
 import { useSectionInView } from "@/libs/hooks";
-import Image from "next/image";
 
 export default function Skills() {
-  const { ref } = useSectionInView("skills", 0.25);
+  const { ref } = useSectionInView("skills", 0.2);
+  const reduceMotion = useReducedMotion();
   return (
-    <section id="skills" ref={ref} className="skills-section section-space page-width">
-      <p className="eyebrow">My toolkit</p>
-      <h2 className="section-title">The tools behind <em>the ideas.</em></h2>
-      <p className="section-description">Technologies and creative tools I have used across my projects.</p>
-      <ul className="skills-list">{skillsData.filter(([name]) => name).map(([name, icon]) => <li key={name}><Image src={icon} alt="" width={22} height={22} />{name}</li>)}</ul>
+    <section id="skills" ref={ref} className="skills-section portfolio-section">
+      <h2 className="section-title">My skills</h2>
+      <ul className="skills-list">
+        {skillsData.filter(([name]) => name).map(([name, src]) => <motion.li key={name} whileHover={reduceMotion ? undefined : { y: -3 }} transition={{ duration: 0.18 }}>
+          <Image src={src} alt="" width={24} height={24} />{name}
+        </motion.li>)}
+      </ul>
     </section>
   );
 }

@@ -1,9 +1,8 @@
 export default function Footer() {
   return (
-    <footer className="site-footer page-width">
-      <a href="#home" className="wordmark">hedi<span>.</span></a>
-      <p>© {new Date().getFullYear()} Hedi Fourati</p>
-      <a href="https://github.com/GameNotCreator" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    <footer className="site-footer">
+      <small>© {new Date().getFullYear()} Hedi Fourati. All rights reserved.</small>
+      <p>Have an idea in mind? Let’s start a conversation.</p>
     </footer>
   );
 }

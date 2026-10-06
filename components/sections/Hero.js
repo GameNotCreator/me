@@ -1,32 +1,34 @@
 "use client";
-import Image from "next/image";
-import { ArrowDownRight, ArrowUpRight, Github } from "lucide-react";
+
+import { motion, useReducedMotion } from "framer-motion";
+import { Github, Mail } from "lucide-react";
+import { useActiveSectionContext } from "@/libs/SectionProvider";
 import { useSectionInView } from "@/libs/hooks";
 
 export default function Hero() {
   const { ref } = useSectionInView("home", 0.3);
+  const reduceMotion = useReducedMotion();
+  const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+  const setSection = (id) => { setActiveSection(id); setTimeOfLastClick(Date.now()); };
+
   return (
-    <section id="home" ref={ref} className="hero-section page-width">
-      <div className="hero-copy">
-        <p className="eyebrow">Developer and founder</p>
-        <p className="hero-introduction">Hey, I&apos;m Hedi Fourati.</p>
-        <h1>I turn ideas into <em>things people use.</em></h1>
+    <section className="hero-section" id="home" ref={ref}>
+      <div className="hero-content">
+        <h1 aria-label="Hedi Fourati">
+          {Array.from("Hedi Fourati").map((letter, index) => <motion.span key={index} aria-hidden="true" className="hero-letter"
+            initial={{ opacity: 0.65, y: reduceMotion ? 0 : 12 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: reduceMotion ? 0 : 0.45, delay: reduceMotion ? 0 : index * 0.03, ease: [0.16, 1, 0.3, 1] }}>{letter === " " ? "\u00a0" : letter}</motion.span>)}
+        </h1>
+        <motion.p className="hero-role" initial={{ opacity: 0.75 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.2 }}>Self-taught developer · Founder · App builder</motion.p>
         <p className="hero-description">From my first business in Tunisia to student tools and iOS apps, I build projects that grow out of everyday needs and my own curiosity.</p>
-        <div className="hero-actions">
-          <a className="button button-primary" href="#projects">Explore my work <ArrowDownRight size={18} /></a>
-          <a className="button button-secondary" href="#contact">Let&apos;s talk <ArrowUpRight size={18} /></a>
-        </div>
-        <a className="text-link hero-github" href="https://github.com/GameNotCreator" target="_blank" rel="noopener noreferrer"><Github size={17} /> What I&apos;m building on GitHub <ArrowUpRight size={15} /></a>
-      </div>
-      <div className="hero-portrait">
-        <div className="portrait-frame"><Image src="/photo.jpg" alt="Hedi Fourati" width={470} height={470} priority className="portrait-image" /></div>
-        <div className="portrait-caption"><span className="status-dot" /> Learning by building, since age 8.</div>
-        <p className="portrait-note">I learn by<br />building things.</p>
-      </div>
-      <div className="hero-facts" aria-label="Selected experience">
-        <div><strong>20+</strong><span>Restaurants and shops served by TunisianPass</span></div>
-        <div><strong>500+</strong><span>Monthly users on TunisianPass</span></div>
-        <div><strong>2</strong><span>Hackathons, in Lausanne and St. Gallen</span></div>
+        <motion.div className="hero-actions" initial={{ opacity: 0.8, y: reduceMotion ? 0 : 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.3 }}>
+          <a className="button button-primary" href="#contact" onClick={() => setSection("contact")}>Contact me here</a>
+          <a className="button button-secondary" href="/resume.pdf" target="_blank" rel="noopener noreferrer">See my resume</a>
+          <div className="hero-socials">
+            <motion.a className="social-link" href="https://github.com/GameNotCreator" target="_blank" rel="noopener noreferrer" aria-label="Hedi Fourati on GitHub" whileHover={reduceMotion ? undefined : { y: -3 }} whileTap={reduceMotion ? undefined : { scale: 0.95 }}><Github size={23} aria-hidden="true" /></motion.a>
+            <motion.a className="social-link" href="mailto:hedi_fourati@icloud.com" aria-label="Email Hedi Fourati" whileHover={reduceMotion ? undefined : { y: -3 }} whileTap={reduceMotion ? undefined : { scale: 0.95 }}><Mail size={23} aria-hidden="true" /></motion.a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

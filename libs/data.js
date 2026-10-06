@@ -8,8 +8,8 @@ import seven from "@/public/projects/7.png";
 import eight from "@/public/projects/8.png";
 import nine from "@/public/projects/9.png";
 import ten from "@/public/projects/10.png";
-import welockinPhoto from "@/public/work/welockin-schedule.webp";
-import saudadePhoto from "@/public/work/saudade-qr-detail.webp";
+import welockinPhoto from "@/public/images/Work/welockin-schedule.webp";
+import saudadePhoto from "@/public/images/Work/saudade-qr-detail.webp";
 
 export const links = [
   {
@@ -21,12 +21,8 @@ export const links = [
     id: "about",
   },
   {
-    name: "Work",
+    name: "Projects",
     id: "projects",
-  },
-  {
-    name: "Hackathons",
-    id: "hackathons",
   },
   {
     name: "Skills",

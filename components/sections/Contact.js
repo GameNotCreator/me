@@ -1,33 +1,38 @@
 "use client";
+
 import { useState } from "react";
 import { useFormStatus } from "react-dom";
-import { ArrowUpRight, Send } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { Send } from "lucide-react";
 import { useSectionInView } from "@/libs/hooks";
 import { sendEmail } from "@/actions/SendEmail";
 
 function SendButton() {
   const { pending } = useFormStatus();
-  return <button type="submit" className="button button-primary" disabled={pending}>{pending ? "Sending…" : "Send message"}<Send size={15} /></button>;
+  const reduceMotion = useReducedMotion();
+  return <motion.button type="submit" className="button button-primary" disabled={pending} whileTap={reduceMotion || pending ? undefined : { scale: 0.97 }}>{pending ? "Sending…" : "Send message"}<Send size={16} aria-hidden="true" /></motion.button>;
 }
+
 export default function Contact() {
   const { ref } = useSectionInView("contact", 0.2);
   const [result, setResult] = useState(null);
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   return (
-    <section id="contact" ref={ref} className="contact-section section-space page-width">
-      <div className="contact-copy">
-        <p className="eyebrow">Have something in mind?</p>
-        <h2 className="section-title">Let&apos;s build <em>something.</em></h2>
-        <p>If you want to talk about a project, a collaboration, or something I am working on, I would love to hear from you.</p>
-        <a className="text-link contact-email" href="mailto:hedi_fourati@icloud.com">hedi_fourati@icloud.com <ArrowUpRight size={16} /></a>
-      </div>
+    <section id="contact" ref={ref} className="contact-section portfolio-section">
+      <h2 className="section-title">Hit me up!</h2>
+      <p className="section-copy">Please contact me directly at <a href="mailto:hedi_fourati@icloud.com">hedi_fourati@icloud.com</a> or through this form.</p>
       <form className="contact-form" action={async (formData) => {
+        const submittedEmail = formData.get("senderEmail");
+        const submittedMessage = formData.get("message");
         setResult(null);
         try {
           const response = await sendEmail(formData);
           setResult(response.error ? { error: true, message: response.error } : { error: false, message: "Thanks! Your message has been sent." });
-          if (!response.error) { setEmail(""); setMessage(""); }
+          if (!response.error) {
+            setEmail((current) => current === submittedEmail ? "" : current);
+            setMessage((current) => current === submittedMessage ? "" : current);
+          }
         } catch {
           setResult({ error: true, message: "Your message could not be sent. Please email me directly." });
         }

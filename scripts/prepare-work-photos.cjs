@@ -28,7 +28,7 @@ const sources = [
 
 async function main() {
   const input = path.resolve(process.argv[2] || "../portfolio-photos");
-  const output = path.resolve(__dirname, "../public/work");
+  const output = path.resolve(__dirname, "../public/images/Work");
   await fs.mkdir(output, { recursive: true });
   let bytes = 0;
   for (const [file, name, rotation] of sources) {

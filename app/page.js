@@ -4,13 +4,14 @@ import Projects from "../components/sections/Projects";
 import Skills from "../components/sections/Skills";
 import Contact from "../components/sections/Contact";
 import Life from "@/components/sections/Life";
-import Hackathons from "@/components/sections/Hackathons";
+import { workPhotos } from "@/libs/work-photos";
 import path from "path";
 import fs from "fs";
 
 export default function Home() {
     // Keep the existing personal photo collections available in the Life section.
     const imagesDir = path.join(process.cwd(), "public", "images");
+    const photoDetails = new Map(workPhotos.map((photo) => [photo.src, photo]));
   
     const categories = fs.readdirSync(imagesDir, { withFileTypes: true })
       .filter((dirent) => dirent.isDirectory())
@@ -22,9 +23,10 @@ export default function Home() {
       const files = fs.readdirSync(categoryDir);
       const imageFiles = files.filter((file) => /\.(jpe?g|png|webp)$/i.test(file));
       imageFiles.sort((a, b) => a.localeCompare(b, "en", { numeric: true }));
-      galleries[category] = imageFiles.map(
-        (file) => `/images/${category}/${file}`
-      );
+      galleries[category] = imageFiles.map((file) => {
+        const src = `/images/${category}/${file}`;
+        return photoDetails.get(src) || src;
+      });
     });
 
   return (
@@ -32,7 +34,6 @@ export default function Home() {
       <Hero />
       <About />
       <Projects />
-      <Hackathons />
       <Skills />
       <Life galleries={galleries} />
       <Contact />

@@ -1,24 +1,27 @@
 "use client";
 import { hackathonsData } from "@/libs/data";
-import { useSectionInView } from "@/libs/hooks";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function Hackathons() {
-  const { ref } = useSectionInView("hackathons", 0.2);
+  const reduceMotion = useReducedMotion();
   return (
-    <section id="hackathons" ref={ref} className="hackathons-section section-space page-width">
-      <p className="eyebrow">Building with a team</p>
-      <h2 className="section-title">Two hackathons,<br /><em>two different challenges.</em></h2>
-      <div className="hackathon-grid">
-        {hackathonsData.map((hackathon, index) => <article className="hackathon-card" key={hackathon.id}>
-          <span className="hackathon-number">0{index + 1}</span>
-          <p className="eyebrow">{hackathon.event} · {hackathon.location}</p>
-          <h3>{hackathon.title}</h3>
-          <p>{hackathon.description}</p>
+    <div className="hackathons-block" aria-labelledby="hackathons-heading">
+      <h3 id="hackathons-heading" className="section-title">Hackathons</h3>
+      <p className="section-copy">Two challenges I explored with a team, in Lausanne and St. Gallen.</p>
+      <div className="hackathon-list">
+        {hackathonsData.map((hackathon) => <motion.article className="hackathon-card" key={hackathon.id}
+          initial={reduceMotion ? false : { opacity: 0.8, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: reduceMotion ? 0 : 0.35, ease: [0.16, 1, 0.3, 1] }}>
+          <h4>{hackathon.title}</h4>
+          <p>{hackathon.event} · {hackathon.location}</p>
+          <p className="project-description">{hackathon.description}</p>
           <p className="project-role"><span>My contribution</span>{hackathon.role}</p>
           {hackathon.outcome && <p className="project-outcome">{hackathon.outcome}</p>}
           <ul className="project-tags" aria-label={`${hackathon.event} details`}>{hackathon.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
-        </article>)}
+        </motion.article>)}
       </div>
-    </section>
+    </div>
   );
 }
