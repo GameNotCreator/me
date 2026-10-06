@@ -1,19 +1,15 @@
-'use client'
+"use client";
+import { useSectionInView } from "@/libs/hooks";
 import ImageGallery from "@/components/elements/Images/ImageGallery";
-import SectionHeading from "@/components/layout/SectionHeading";
-import { motion } from "framer-motion";
-const Life = ({ galleries }) => {
 
+export default function Life({ galleries }) {
+  const { ref } = useSectionInView("life", 0.1);
   return (
-    <motion.section
-      className="relative flex flex-col  flex-col items-center justify-center"
-    >
-      <div className="hero min-h-screen" id="life">
-        <SectionHeading id="life">Get to know more about my life</SectionHeading>
-        <ImageGallery galleries={galleries} />
-      </div>
-    </motion.section>
+    <section id="life" ref={ref} className="life-section section-space page-width">
+      <p className="eyebrow">Away from the keyboard</p>
+      <h2 className="section-title">A few pieces <em>of my life.</em></h2>
+      <p className="section-description">Chess, community projects, and moments along the way.</p>
+      <ImageGallery galleries={galleries} />
+    </section>
   );
-};
-
-export default Life;
+}

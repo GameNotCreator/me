@@ -6,14 +6,15 @@ import { ToastContainer, Bounce } from "react-toastify";
 import "./globals.css";
 
 export const metadata = {
-  title: "Hedi Fourati ~ The Portfolio",
-  description: "Welcome to my portfolio",
+  title: "Hedi Fourati | Developer, builder & founder",
+  description: "The projects and story of Hedi Fourati: client websites, TunisianPass, student tools, iOS apps, and hackathon experiments.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="en">
       <body className={cn("relative flex items-center justify-center")}>
+        <a className="skip-link" href="#main-content">Skip to content</a>
         <div className="flex min-h-screen w-full flex-col">
           <ActiveSectionContextProvider>
             <ToastContainer

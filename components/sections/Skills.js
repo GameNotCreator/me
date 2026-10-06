@@ -1,58 +1,16 @@
 "use client";
-
-import React from "react";
 import { skillsData } from "@/libs/data";
 import { useSectionInView } from "@/libs/hooks";
-import { motion } from "framer-motion";
 import Image from "next/image";
-import SectionHeading from "@/components/layout/SectionHeading";
-
-const fadeInAnimationVariants = {
-  initial: {
-    opacity: 0,
-    y: 100,
-  },
-  animate: (index) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 0.05 * index,
-    },
-  }),
-};
 
 export default function Skills() {
-  const { ref } = useSectionInView("skills");
-
+  const { ref } = useSectionInView("skills", 0.25);
   return (
-    <section
-      id="skills"
-      ref={ref}
-      className="flex w-full flex-col items-center justify-center py-24 pb-[150px] text-center dark:bg-darkBg dark:text-white sm:pb-40"
-    >
-      <SectionHeading>My skills</SectionHeading>
-      <ul className="my-26 mb-[150px] flex max-w-[53rem] flex-wrap items-center justify-center gap-2 text-lg text-gray-800">
-        {skillsData.map((skill, index) => (
-          <motion.li
-            className="borderBlack flex items-center justify-center rounded-xl bg-gray-200 px-5 py-3 dark:bg-white/10 dark:text-white/80"
-            key={index}
-            variants={fadeInAnimationVariants}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            custom={index}
-          >
-            <Image
-              src={skill[1]}
-              alt={skill[0]}
-              width={24}
-              height={24}
-              className="mr-2 inline h-6 w-6"
-            />
-            {skill[0]}
-          </motion.li>
-        ))}
-      </ul>
+    <section id="skills" ref={ref} className="skills-section section-space page-width">
+      <p className="eyebrow">My toolkit</p>
+      <h2 className="section-title">The tools behind <em>the ideas.</em></h2>
+      <p className="section-description">Technologies and creative tools I have used across my projects.</p>
+      <ul className="skills-list">{skillsData.filter(([name]) => name).map(([name, icon]) => <li key={name}><Image src={icon} alt="" width={22} height={22} />{name}</li>)}</ul>
     </section>
   );
 }
