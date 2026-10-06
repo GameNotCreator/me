@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import * as m from "framer-motion/m";
+import { useReducedMotion } from "framer-motion";
 import { links } from "@/libs/data";
 import { useActiveSectionContext } from "@/libs/SectionProvider";
 
@@ -9,7 +10,7 @@ export default function Navbar() {
   const reduceMotion = useReducedMotion();
   return (
     <header className="site-header">
-      <motion.nav className="site-nav" aria-label="Main navigation" initial={{ opacity: 0.85, y: reduceMotion ? 0 : -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
+      <m.nav className="site-nav" aria-label="Main navigation" initial={{ opacity: 0.85, y: reduceMotion ? 0 : -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
         <ul className="nav-links">
           {links.map((link) => <li key={link.id}>
             <a href={`#${link.id}`} className={activeSection === link.id ? "is-active" : undefined} aria-current={activeSection === link.id ? "location" : undefined}>
@@ -18,7 +19,7 @@ export default function Navbar() {
             </a>
           </li>)}
         </ul>
-      </motion.nav>
+      </m.nav>
     </header>
   );
 }

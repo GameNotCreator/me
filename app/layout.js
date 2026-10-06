@@ -2,11 +2,40 @@ import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import ActiveSectionContextProvider from "@/libs/SectionProvider";
 import MotionProvider from "@/components/layout/MotionProvider";
+import { site } from "@/libs/seo";
 import "./globals.css";
 
 export const metadata = {
-  title: "Hedi Fourati | Developer, builder & founder",
-  description: "The projects and story of Hedi Fourati: client websites, TunisianPass, student tools, iOS apps, and hackathon experiments.",
+  metadataBase: new URL(site.url),
+  title: { default: site.title, template: "%s | Hedi Fourati" },
+  description: site.description,
+  authors: [{ name: site.name, url: `${site.url}/` }],
+  creator: site.name,
+  alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: `${site.url}/`,
+    siteName: site.name,
+    title: site.title,
+    description: site.description,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.title,
+    description: site.description,
+  },
 };
 
 export default function RootLayout({ children }) {

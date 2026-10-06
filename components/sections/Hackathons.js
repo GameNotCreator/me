@@ -1,6 +1,7 @@
 "use client";
 import { hackathonsData } from "@/libs/data";
-import { motion, useReducedMotion } from "framer-motion";
+import * as m from "framer-motion/m";
+import { useReducedMotion } from "framer-motion";
 
 export default function Hackathons() {
   const reduceMotion = useReducedMotion();
@@ -9,7 +10,7 @@ export default function Hackathons() {
       <h3 id="hackathons-heading" className="section-title">Hackathons</h3>
       <p className="section-copy">Two challenges I explored with a team, in Lausanne and St. Gallen.</p>
       <div className="hackathon-list">
-        {hackathonsData.map((hackathon) => <motion.article className="hackathon-card" key={hackathon.id}
+        {hackathonsData.map((hackathon) => <m.article className="hackathon-card" key={hackathon.id}
           initial={reduceMotion ? false : { opacity: 0.8, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -20,7 +21,7 @@ export default function Hackathons() {
           <p className="project-role"><span>My contribution</span>{hackathon.role}</p>
           {hackathon.outcome && <p className="project-outcome">{hackathon.outcome}</p>}
           <ul className="project-tags" aria-label={`${hackathon.event} details`}>{hackathon.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
-        </motion.article>)}
+        </m.article>)}
       </div>
     </div>
   );

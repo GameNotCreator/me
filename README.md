@@ -35,7 +35,15 @@ it when updating the framework.
 - Add project photos to `public/projects/`, import them in `libs/data.js`, and set the relevant entry's `imageUrl`. Website captures live in `public/previews/` and use `previewType: "website"` with `previewDomain`. Entries without a supplied image use their names as visual cards.
 - The existing Work album in Life now contains its 25 original photos plus 19 supplied photos in `public/images/Work/`. Captions for the supplied images live in `libs/work-photos.js` and appear in the preview. Saudade also uses its T-shirt photo on the project card. Web copies are resized, oriented and compressed; the supplied originals remain in the owner's archive. `node scripts/prepare-work-photos.cjs /path/to/extracted/photos` regenerates these copies.
 - The Life gallery reads JPG, JPEG, PNG, and WebP photos from folders in `public/images/`.
+- `libs/gallery-photos.js` provides descriptive English alt text and preview captions for the original Life photos. Keep these descriptions consistent with the actual photographs.
 - `public/resume.pdf` is the updated one-page English CV, with the supplied Swiss contact details, EPFL studies, portfolio link, client work, released products, and hackathons. The original supplied CV is preserved outside the repository.
+
+## SEO and production
+
+The Vercel project `landing-thehnh` builds this repository's `main` branch.
+`thehnh.tech` permanently redirects to the canonical `https://www.thehnh.tech/`.
+Update the public identity, metadata and genuine content modification date in
+`libs/seo.js`. See [SEO notes](docs/SEO.md) for configuration and validation.
 
 All 18 projects remain in the original single-column Projects section, followed by
 the two hackathon entries. Development status appears on the relevant card.

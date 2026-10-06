@@ -5,13 +5,15 @@ import Skills from "../components/sections/Skills";
 import Contact from "../components/sections/Contact";
 import Life from "@/components/sections/Life";
 import { workPhotos } from "@/libs/work-photos";
+import { galleryPhotos } from "@/libs/gallery-photos";
 import path from "path";
 import fs from "fs";
+import { profileStructuredData } from "@/libs/seo";
 
 export default function Home() {
     // Keep the existing personal photo collections available in the Life section.
     const imagesDir = path.join(process.cwd(), "public", "images");
-    const photoDetails = new Map(workPhotos.map((photo) => [photo.src, photo]));
+    const photoDetails = new Map([...galleryPhotos, ...workPhotos].map((photo) => [photo.src, photo]));
   
     const categories = fs.readdirSync(imagesDir, { withFileTypes: true })
       .filter((dirent) => dirent.isDirectory())
@@ -31,6 +33,12 @@ export default function Home() {
 
   return (
     <main id="main-content" className="flex min-h-screen w-full flex-col items-center p-0">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(profileStructuredData).replace(/</g, "\\u003c"),
+        }}
+      />
       <Hero />
       <About />
       <Projects />
