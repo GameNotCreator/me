@@ -21,7 +21,7 @@ export default function Hero() {
             transition={{ duration: reduceMotion ? 0 : 0.45, delay: reduceMotion ? 0 : index * 0.03, ease: [0.16, 1, 0.3, 1] }}>{letter === " " ? "\u00a0" : letter}</motion.span>)}
         </h1>
         <motion.p className="hero-study" initial={{ opacity: 0.75 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: reduceMotion ? 0 : 0.2 }}>EPFL student · Second-year Computer Science</motion.p>
-        <p className="hero-role">Swiss–Tunisian · Self-taught developer · Founder</p>
+        <p className="hero-role">Tunisian · Self-taught developer · Founder</p>
         <p className="hero-description">From my first business in Tunisia to student tools and iOS apps, I build projects that grow out of everyday needs and my own curiosity.</p>
         <motion.div className="hero-actions" initial={{ opacity: 0.8, y: reduceMotion ? 0 : 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.3 }}>
           <a className="button button-primary" href="#contact">Get in touch</a>
