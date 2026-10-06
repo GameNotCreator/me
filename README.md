@@ -2,6 +2,8 @@
 
 A personal portfolio built with Next.js, React, and Framer Motion. It presents
 client websites, TunisianPass, student tools, iOS apps, hackathons, and personal photos.
+WeLockIn is a desktop focus app; welock.in is its website. Its mobile version is
+in development. WeLock (welock.app) is a separate web app for study rooms.
 It preserves the original section order, floating navigation, centered introduction,
 circular portrait in the hero, alternating project cards, and light/dark palette.
 The hero has a static warm background; short foreground animations and interaction
