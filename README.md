@@ -3,8 +3,10 @@
 A personal portfolio built with Next.js, React, and Framer Motion. It presents
 client websites, TunisianPass, student tools, iOS apps, hackathons, and personal photos.
 It preserves the original section order, floating navigation, centered introduction,
-circular portrait, alternating project cards, and light/dark palette. The background
-is static; short foreground animations and interaction feedback respect reduced motion.
+circular portrait in the hero, alternating project cards, and light/dark palette.
+The hero has a static warm background; short foreground animations and interaction
+feedback respect reduced motion. Cards stack on phones and tablets, with uncropped
+website captures in linked browser frames.
 
 ## Run locally
 
@@ -28,22 +30,44 @@ it when updating the framework.
 - `libs/data.js` contains the project descriptions, status labels, links, App Store links, and hackathon entries.
 - `components/sections/Hero.js` and `About.js` contain the introduction and personal story.
 - `app/globals.css` contains the visual design and responsive layout.
-- Add project photos to `public/projects/`, import them in `libs/data.js`, and set the relevant entry's `imageUrl`. Entries without a supplied image use their names as visual cards.
-- The existing Work album in Life now contains its 25 original photos plus 19 supplied photos in `public/images/Work/`. Captions for the supplied images live in `libs/work-photos.js` and appear in the preview. WeLockIn and Saudade also use these images on their project cards. Web copies are resized, oriented and compressed; the supplied originals remain in the owner's archive. `node scripts/prepare-work-photos.cjs /path/to/extracted/photos` regenerates these copies.
+- Add project photos to `public/projects/`, import them in `libs/data.js`, and set the relevant entry's `imageUrl`. Website captures live in `public/previews/` and use `previewType: "website"` with `previewDomain`. Entries without a supplied image use their names as visual cards.
+- The existing Work album in Life now contains its 25 original photos plus 19 supplied photos in `public/images/Work/`. Captions for the supplied images live in `libs/work-photos.js` and appear in the preview. Saudade also uses its T-shirt photo on the project card. Web copies are resized, oriented and compressed; the supplied originals remain in the owner's archive. `node scripts/prepare-work-photos.cjs /path/to/extracted/photos` regenerates these copies.
 - The Life gallery reads JPG, JPEG, PNG, and WebP photos from folders in `public/images/`.
-- The existing resume remains in `public/resume.pdf`.
+- `public/resume.pdf` is the updated one-page English CV, with the supplied Swiss contact details, EPFL studies, portfolio link, client work, released products, and hackathons. The original supplied CV is preserved outside the repository.
 
 All 18 projects remain in the original single-column Projects section, followed by
 the two hackathon entries. Development status appears on the relevant card.
 The navigation and section order remain Home, About, Projects, Skills, Life, Contact.
 
-## Contact form
+## Contact
 
-Configure `RESEND_API_KEY` in `.env.local` or the hosting environment to enable
-email delivery. Messages go to the portfolio's existing contact address,
-`hedi_fourati@icloud.com`. Without the key, the form provides the direct email
-address instead of claiming the message was sent. The sender domain configured
-in `actions/SendEmail.js` must also be permitted by the Resend account.
+The Contact section uses direct `mailto:` links to `hedi.fourati@epfl.ch`
+and a `tel:` link for the supplied Swiss phone number.
+There is no rendered contact form or email delivery service to configure.
+The visible address remains available for visitors who prefer to copy it.
+
+## Website previews
+
+Nine authentic homepage captures were taken in the browser on 6 October 2026 at
+1440 × 1000. They are static snapshots, not live embedded sites. Clicking a preview
+opens the actual website. The local WebP copies avoid third-party requests on page load.
+
+| Preview | Source |
+| --- | --- |
+| TunisianPass | https://tunisian-pass.tn/ |
+| WeLockIn | https://welock.in/ |
+| WeLock | https://welock.app/ |
+| MyDiarySkills | https://mydiaryskills.thehnh.tech/ |
+| MyGymSkills | https://mygymskills.thehnh.tech/ |
+| FocusGym | https://focusgym.tn/ |
+| CleanAir | https://www.cleanair.com.tn/ |
+| Dieu et Cie | https://www.dieu-et-cie.fr/ |
+| LiliDecoAI | https://lilidecoai-web.vercel.app/ |
+
+To refresh them, save matching JPG browser captures outside `public/`, then run
+`node scripts/prepare-site-previews.cjs /path/to/captures`. This compresses the files
+without cropping their content. Keep the Saudade photograph and WeLockIn Mobile
+wordmark unless the owner supplies a replacement.
 
 ## Content provenance
 
