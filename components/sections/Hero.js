@@ -3,6 +3,7 @@
 import * as m from "framer-motion/m";
 import { useReducedMotion } from "framer-motion";
 import Image from "next/image";
+import portrait from "@/public/photo.jpg";
 import { Github, Mail } from "lucide-react";
 import { useSectionInView } from "@/libs/hooks";
 
@@ -14,7 +15,7 @@ export default function Hero() {
     <section className="hero-section" id="home" ref={ref}>
       <div className="hero-content">
         <m.div className="hero-portrait" initial={reduceMotion ? false : { opacity: 0.8, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}>
-          <Image src="/photo.jpg" alt="Hedi Fourati" width={240} height={240} sizes="(max-width: 639px) 168px, 208px" className="portrait-image" priority />
+          <Image src={portrait} alt="Hedi Fourati" width={240} height={240} sizes="(max-width: 639px) 168px, 208px" className="portrait-image" priority />
         </m.div>
         <h1 aria-label="Hedi Fourati">
           {Array.from("Hedi Fourati").map((letter, index) => <m.span key={index} aria-hidden="true" className="hero-letter"

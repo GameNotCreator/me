@@ -19,7 +19,7 @@ export default async function OpenGraphImage() {
         <div style={{ display: "flex", fontSize: 25, color: "#62554e", marginTop: 18 }}>EPFL Computer Science student</div>
         <div style={{ display: "flex", fontSize: 24, marginTop: 44 }}>thehnh.tech</div>
       </div>
-      <img src={portraitUrl} alt="" width={300} height={321} style={{ borderRadius: 18 }} />
+      <img src={portraitUrl} alt="" width={300} height={300} style={{ borderRadius: 18 }} />
     </div>,
     size,
   );
