@@ -122,6 +122,8 @@ captures of the current public websites.
 FinanceTracker is a Codex-assisted prototype for a freelance opportunity that did
 not go ahead. It is retained as a working demo with transaction tracking, budgets,
 CSV imports, and report exports, as described by the owner.
-MathParty is a live, turn-based maths game platform for students. Its players solve
-problems from France's Course aux nombres before a bomb explodes, as described by
-the owner.
+MathParty is still in development and is not yet fully functional, as clarified by
+the owner on 22 October 2026. Its concept is a live, turn-based maths game for
+students, with problems from France's Course aux nombres to solve before a bomb
+explodes. Keep its status and copy explicit about the work in progress; the
+"Preview project" button opens the current site.
