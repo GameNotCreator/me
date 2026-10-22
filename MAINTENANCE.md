@@ -3,7 +3,8 @@
 A personal portfolio built with Next.js, React, and Framer Motion. It presents
 client websites, TunisianPass, student tools, iOS apps, hackathons, and personal photos.
 WeLockIn is a desktop focus app; welock.in is its website. Its mobile version is
-available on the iOS App Store. WeLock (welock.app) is a separate web app for study rooms.
+available on the iOS App Store. Both versions share one project card with the website
+preview and an App Store link. WeLock (welock.app) is a separate web app for study rooms.
 It preserves the original section order, floating navigation, centered introduction,
 circular portrait in the hero, alternating project cards, and light/dark palette.
 The hero has a static warm background; short foreground animations and interaction
@@ -46,13 +47,20 @@ Update the public identity, metadata and genuine content modification date in
 `libs/seo.js`. See [SEO notes](docs/SEO.md) for configuration and validation.
 
 The Projects section has category filters: All projects, Websites (13), Mobile apps (4),
-Desktop apps (1), and Hackathons (2). All 20 entries are rendered by default, preserving
-their server-rendered content and the original alternating card layout. Category counts
+Desktop apps (1), and Hackathons (2). All 19 entries (17 projects and 2 hackathons) are
+rendered by default, preserving their server-rendered content and the original
+alternating card layout. Category counts
 come from the data, and the selected filter announces the number of results.
 Use `category: "website"`, `"mobile"`, or `"desktop"` in `libs/data.js`; hackathons
 remain in `hackathonsData`, with optional `projectLink` and `previewLink` fields.
+Projects can optionally provide a `categories` array instead of relying on their single
+`category`. WeLockIn uses `category: "desktop"` and `categories: ["desktop", "mobile"]`,
+so it appears in both relevant filters and only once in All projects. Filter counts
+therefore overlap and should not be added together.
 Mobile cards link directly to their iOS App Store pages and state that Android is not
 available yet. Development status still appears on projects that are in progress.
+The optional `appStoreLabel` changes the App Store button text; WeLockIn uses
+`"See on App Store"`, while other apps retain the default `"App Store (iOS)"`.
 The navigation and section order remain Home, About, Projects, Skills, Life, Contact.
 
 ## Contact
@@ -64,9 +72,11 @@ The visible address remains available for visitors who prefer to copy it.
 
 ## Website previews
 
-Nine authentic homepage captures were taken in the browser on 6 October 2026 at
+Nine authentic homepage captures were initially taken in the browser on 6 October 2026 at
 1440 × 1000. They are static snapshots, not live embedded sites. Clicking a preview
 opens the actual website. The local WebP copies avoid third-party requests on page load.
+The WeLock (welock.app) preview was refreshed on 22 October 2026 after entering a
+display name to reach the homepage. The other eight captures remain from 6 October 2026.
 
 | Preview | Source |
 | --- | --- |
@@ -82,8 +92,8 @@ opens the actual website. The local WebP copies avoid third-party requests on pa
 
 To refresh them, save matching JPG browser captures outside `public/`, then run
 `node scripts/prepare-site-previews.cjs /path/to/captures`. This compresses the files
-without cropping their content. Keep the Saudade photograph and WeLockIn Mobile
-wordmark unless the owner supplies a replacement.
+without cropping their content. Keep the Saudade photograph and the single WeLockIn
+project card's website preview unless the owner supplies a replacement.
 
 ## Content provenance
 

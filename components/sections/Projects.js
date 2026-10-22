@@ -15,15 +15,17 @@ const categories = [
   { id: "hackathon", label: "Hackathons" },
 ];
 
+const isInCategory = (project, id) => (project.categories ?? [project.category]).includes(id);
+
 const categoryCount = (id) => id === "all"
   ? projectsData.length + hackathonsData.length
-  : id === "hackathon" ? hackathonsData.length : projectsData.filter((project) => project.category === id).length;
+  : id === "hackathon" ? hackathonsData.length : projectsData.filter((project) => isInCategory(project, id)).length;
 
 export default function Projects() {
   const { ref } = useSectionInView("projects", 0.01);
   const [activeCategory, setActiveCategory] = useState("all");
   const reduceMotion = useReducedMotion();
-  const visibleProjects = projectsData.filter((project) => activeCategory === "all" || project.category === activeCategory);
+  const visibleProjects = projectsData.filter((project) => activeCategory === "all" || isInCategory(project, activeCategory));
   const showHackathons = activeCategory === "all" || activeCategory === "hackathon";
   const resultCount = visibleProjects.length + (showHackathons ? hackathonsData.length : 0);
   const activeLabel = categories.find((category) => category.id === activeCategory).label;

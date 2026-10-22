@@ -9,6 +9,7 @@ import eight from "@/public/projects/8.png";
 import nine from "@/public/projects/9.png";
 import ten from "@/public/projects/10.png";
 import saudadePhoto from "@/public/images/Work/saudade-qr-detail.webp";
+import welockPreview from "@/public/previews/welock.webp";
 
 export const links = [
   {
@@ -73,6 +74,7 @@ export const projectsData = [
     id: "welockin",
     title: "WeLockIn",
     category: "desktop",
+    categories: ["desktop", "mobile"],
     status: "Desktop app · iOS on the App Store",
     description:
       "I’m building WeLockIn, a desktop app that helps students stay focused during their work sessions. Its website introduces the app, and an iOS version is also available on the App Store.",
@@ -84,6 +86,8 @@ export const projectsData = [
     previewType: "website",
     previewDomain: "welock.in",
     link: "https://welock.in/",
+    appStoreLink: "https://apps.apple.com/us/app/welockin-lock-in-study/id6796330736",
+    appStoreLabel: "See on App Store",
     accent: "#7568b5",
   },
   {
@@ -96,8 +100,8 @@ export const projectsData = [
     role: "Product creation · Development",
     outcome: "Study rooms without an account",
     tags: ["Student tools", "Study rooms", "Web app"],
-    imageUrl: "/previews/welock.webp",
-    imageAlt: "Homepage screenshot of WeLock",
+    imageUrl: welockPreview,
+    imageAlt: "WeLock study-room homepage",
     previewType: "website",
     previewDomain: "welock.app",
     link: "https://welock.app/",
@@ -223,21 +227,6 @@ export const projectsData = [
     previewDomain: "lilidecoai-web.vercel.app",
     link: "https://lilidecoai-web.vercel.app/",
     accent: "#8c745c",
-  },
-  {
-    id: "welockin-mobile",
-    title: "WeLockIn Mobile",
-    category: "mobile",
-    status: "iOS on the App Store",
-    description:
-      "I built the iOS version of WeLockIn, extending the desktop focus app I created for students to their phones. It is available on the App Store.",
-    role: "Mobile app development",
-    outcome: "Available on iOS",
-    tags: ["Student tools", "Focus", "iOS"],
-    imageUrl: null,
-    link: "https://welock.in/",
-    appStoreLink: "https://apps.apple.com/us/app/welockin-lock-in-study/id6796330736",
-    accent: "#7568b5",
   },
   {
     id: "forbes-ranking",

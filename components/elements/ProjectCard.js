@@ -4,7 +4,7 @@ import { ArrowUpRight, Globe } from "lucide-react";
 import * as m from "framer-motion/m";
 import { useReducedMotion } from "framer-motion";
 
-export default function ProjectCard({ title, description, role, outcome, tags, imageUrl, imageAlt, imageFit, imagePosition, previewType, previewDomain, link, status, appStoreLink }) {
+export default function ProjectCard({ title, description, role, outcome, tags, imageUrl, imageAlt, imageFit, imagePosition, previewType, previewDomain, link, status, appStoreLink, appStoreLabel = "App Store (iOS)" }) {
   const reduceMotion = useReducedMotion();
   const isWebsite = previewType === "website" && Boolean(imageUrl);
   const linkFeedback = reduceMotion ? {} : { whileHover: { scale: 1.025 }, whileTap: { scale: 0.98 } };
@@ -33,7 +33,7 @@ export default function ProjectCard({ title, description, role, outcome, tags, i
         <ul className="project-tags" aria-label={`${title} details`}>{tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
         {appStoreLink && <p className="project-availability">Available on iOS. Android is not available yet.</p>}
         {(link || appStoreLink) && <div className="project-links">
-          {appStoreLink && <m.a href={appStoreLink} target="_blank" rel="noopener noreferrer" className="button button-primary" aria-label={`View ${title} on the App Store for iOS (opens in a new tab)`} {...linkFeedback} transition={{ duration: 0.15 }}>App Store (iOS) <ArrowUpRight size={16} aria-hidden="true" /></m.a>}
+          {appStoreLink && <m.a href={appStoreLink} target="_blank" rel="noopener noreferrer" className="button button-primary" aria-label={`${appStoreLabel}: ${title} (opens in a new tab)`} {...linkFeedback} transition={{ duration: 0.15 }}>{appStoreLabel} <ArrowUpRight size={16} aria-hidden="true" /></m.a>}
           {link && <m.a href={link} target="_blank" rel="noopener noreferrer" className={`button ${appStoreLink ? "button-secondary" : "button-primary"}`} aria-label={`Visit ${title} website (opens in a new tab)`} {...linkFeedback} transition={{ duration: 0.15 }}>{appStoreLink ? "Website" : "View Project"} <ArrowUpRight size={16} aria-hidden="true" /></m.a>}
         </div>}
       </div>
