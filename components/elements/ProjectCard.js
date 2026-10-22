@@ -31,9 +31,10 @@ export default function ProjectCard({ title, description, role, outcome, tags, i
         {role && <p className="project-role"><span>My role</span>{role}</p>}
         {outcome && <p className="project-outcome">{outcome}</p>}
         <ul className="project-tags" aria-label={`${title} details`}>{tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
+        {appStoreLink && <p className="project-availability">Available on iOS. Android is not available yet.</p>}
         {(link || appStoreLink) && <div className="project-links">
-          {link && <m.a href={link} target="_blank" rel="noopener noreferrer" className="button button-primary" aria-label={`Visit ${title} (opens in a new tab)`} {...linkFeedback} transition={{ duration: 0.15 }}>View Project <ArrowUpRight size={16} aria-hidden="true" /></m.a>}
-          {appStoreLink && <m.a href={appStoreLink} target="_blank" rel="noopener noreferrer" className="button button-secondary" aria-label={`View ${title} on the App Store (opens in a new tab)`} {...linkFeedback} transition={{ duration: 0.15 }}>App Store <ArrowUpRight size={16} aria-hidden="true" /></m.a>}
+          {appStoreLink && <m.a href={appStoreLink} target="_blank" rel="noopener noreferrer" className="button button-primary" aria-label={`View ${title} on the App Store for iOS (opens in a new tab)`} {...linkFeedback} transition={{ duration: 0.15 }}>App Store (iOS) <ArrowUpRight size={16} aria-hidden="true" /></m.a>}
+          {link && <m.a href={link} target="_blank" rel="noopener noreferrer" className={`button ${appStoreLink ? "button-secondary" : "button-primary"}`} aria-label={`Visit ${title} website (opens in a new tab)`} {...linkFeedback} transition={{ duration: 0.15 }}>{appStoreLink ? "Website" : "View Project"} <ArrowUpRight size={16} aria-hidden="true" /></m.a>}
         </div>}
       </div>
     </m.article>

@@ -55,7 +55,7 @@ export const projectsData = [
   {
     id: "tunisianpass",
     title: "TunisianPass",
-    category: "venture",
+    category: "website",
     status: "First business",
     description:
       "TunisianPass was my first company in Tunisia. I co-founded it to help local restaurants and shops build their online presence, taking the idea from a website to a service businesses paid for.",
@@ -72,12 +72,12 @@ export const projectsData = [
   {
     id: "welockin",
     title: "WeLockIn",
-    category: "product",
-    status: "Desktop app · Mobile in development",
+    category: "desktop",
+    status: "Desktop app · iOS on the App Store",
     description:
-      "I’m building WeLockIn, a desktop app that helps students stay focused during their work sessions. Its website introduces the app, and I’m working on a mobile version to bring the same idea to their phones.",
+      "I’m building WeLockIn, a desktop app that helps students stay focused during their work sessions. Its website introduces the app, and an iOS version is also available on the App Store.",
     role: "Product creation · Development",
-    outcome: "Desktop app · Mobile version in progress",
+    outcome: "Desktop focus app · iOS version available",
     tags: ["Student tools", "Focus", "Desktop app"],
     imageUrl: "/previews/welockin.webp",
     imageAlt: "Homepage screenshot of WeLockIn",
@@ -89,7 +89,7 @@ export const projectsData = [
   {
     id: "welock",
     title: "WeLock",
-    category: "product",
+    category: "website",
     status: "Web app",
     description:
       "I created WeLock to make joining a study room simple. Students can open a room and study together without creating an account, using a familiar meeting-room flow similar to Google Meet.",
@@ -106,7 +106,7 @@ export const projectsData = [
   {
     id: "mydiaryskills",
     title: "MyDiarySkills",
-    category: "product",
+    category: "mobile",
     status: "iOS on the App Store · Web app",
     description:
       "I created MyDiarySkills to turn everyday experiences into an evolving skill tree. You can write about your day and see the skills you are developing, with optional AI analysis to help make those connections.",
@@ -124,7 +124,7 @@ export const projectsData = [
   {
     id: "mygymskills",
     title: "MyGymSkills",
-    category: "product",
+    category: "mobile",
     status: "iOS on the App Store",
     description:
       "I built MyGymSkills for straightforward workout tracking. You can record your gym sessions on your iPhone without Wi-Fi or an account, keeping the app useful while you are actually training.",
@@ -142,7 +142,7 @@ export const projectsData = [
   {
     id: "saudade",
     title: "Picture me by Saudade",
-    category: "product",
+    category: "mobile",
     status: "iOS on the App Store",
     description:
       "With Saudade, I connected a physical T-shirt to an app. Each shirt has a QR code on the back: someone scans it, takes a photo, and sends it to the shirt’s owner. The iOS app is called Picture me by Saudade.",
@@ -153,13 +153,13 @@ export const projectsData = [
     imageAlt: "The physical Saudade T-shirt with its printed QR code",
     imagePosition: "center 65%",
     link: "https://saudade.thehnh.tech/",
-    appStoreLink: "https://apps.apple.com/de/app/picture-me-by-saudade/id6765511449",
+    appStoreLink: "https://apps.apple.com/ch/app/picture-me-by-saudade/id6765511449",
     accent: "#9c6571",
   },
   {
     id: "focusgym",
     title: "FocusGym",
-    category: "client",
+    category: "website",
     status: "Sold to the company",
     description:
       "I built and sold a website to FocusGym, a Tunisian sportswear company. It includes a product catalogue, checkout, and tools for managing products and orders, giving the company a way to sell online.",
@@ -176,7 +176,7 @@ export const projectsData = [
   {
     id: "cleanair",
     title: "CleanAir",
-    category: "client",
+    category: "website",
     status: "Sold to the company",
     description:
       "I co-created CleanAir’s website with a friend and sold it to the company. It brings together the company’s information, references, and products in one place.",
@@ -193,7 +193,7 @@ export const projectsData = [
   {
     id: "dieu-et-cie",
     title: "Dieu et Cie",
-    category: "in-progress",
+    category: "website",
     status: "In development",
     description:
       "I’m developing a website for Dieu et Cie, a French manufacturer of custom promotional leather goods. The project gives me another opportunity to translate a company’s products and craft into a website.",
@@ -210,7 +210,7 @@ export const projectsData = [
   {
     id: "lilidecoai",
     title: "LiliDecoAI",
-    category: "in-progress",
+    category: "website",
     status: "In development",
     description:
       "I’m developing LiliDecoAI, an art and decor storefront where customers can visualise compatible products in their own interiors. The idea is to help people see how a piece could look in their space before choosing it.",
@@ -227,21 +227,22 @@ export const projectsData = [
   {
     id: "welockin-mobile",
     title: "WeLockIn Mobile",
-    category: "in-progress",
-    status: "In development",
+    category: "mobile",
+    status: "iOS on the App Store",
     description:
-      "I’m developing the mobile version of WeLockIn, extending the desktop focus app I built for students to their phones.",
+      "I built the iOS version of WeLockIn, extending the desktop focus app I created for students to their phones. It is available on the App Store.",
     role: "Mobile app development",
-    outcome: "Mobile version in progress",
-    tags: ["Student tools", "Focus", "Mobile app"],
+    outcome: "Available on iOS",
+    tags: ["Student tools", "Focus", "iOS"],
     imageUrl: null,
     link: "https://welock.in/",
+    appStoreLink: "https://apps.apple.com/us/app/welockin-lock-in-study/id6796330736",
     accent: "#7568b5",
   },
   {
     id: "forbes-ranking",
     title: "Forbes Ranking",
-    category: "early",
+    category: "website",
     status: "School project",
     year: "2022",
     description:
@@ -256,7 +257,7 @@ export const projectsData = [
   {
     id: "engineering-club",
     title: "Engineering Club Website",
-    category: "early",
+    category: "website",
     status: "Club project",
     description:
       "I built a website for the engineering club I founded in 2022. It gave us a place to share the projects we worked on and our competition results.",
@@ -270,7 +271,7 @@ export const projectsData = [
   {
     id: "lili-land",
     title: "Lili Land",
-    category: "early",
+    category: "website",
     status: "Website",
     description:
       "I created this website for my father’s amusement park. It brings together prices, attractions, and a park map to help visitors plan their day.",
@@ -284,7 +285,7 @@ export const projectsData = [
   {
     id: "le-fumoir",
     title: "Le Fumoir",
-    category: "early",
+    category: "website",
     status: "Restaurant website",
     description:
       "I created a website for a local restaurant to present its dishes, prices, and practical information to people looking it up online.",
@@ -298,7 +299,7 @@ export const projectsData = [
   {
     id: "kenko-food-bar",
     title: "Kenko Food Bar",
-    category: "early",
+    category: "website",
     status: "Restaurant website",
     description:
       "I developed a website for Kenko Food Bar with its menu, prices, restaurant details, and a reservation system.",
@@ -312,7 +313,7 @@ export const projectsData = [
   {
     id: "djoby",
     title: "Djoby · Medianet Internship",
-    category: "early",
+    category: "website",
     status: "Internship project",
     description:
       "During my summer internship at Medianet, I worked on Djoby, a service-exchange platform for neighbours. The idea was to connect people who needed help with everyday tasks, such as repairs, with people nearby.",
@@ -326,7 +327,7 @@ export const projectsData = [
   {
     id: "association-website",
     title: "Association Website",
-    category: "early",
+    category: "website",
     status: "Community project",
     description:
       "I created this website for a charity I was involved with. The association was new, and the website gave it a place to explain its mission and introduce its work.",
@@ -350,6 +351,8 @@ export const hackathonsData = [
     role: "App development",
     outcome: "A dating concept built around Telegram and committed funds",
     tags: ["Next.js", "Telegram", "Dating"],
+    projectLink: "https://github.com/DateTon/402-Dateton",
+    previewLink: "https://dorahacks.io/build/41295",
     accent: "#997086",
   },
   {
@@ -362,6 +365,7 @@ export const hackathonsData = [
     role: "Security system development",
     outcome: "Purchase checks against customer requirements",
     tags: ["AI", "Purchase checks", "Security"],
+    projectLink: "https://github.com/StartHack-CamelCase/StartCase1",
     accent: "#5c7e86",
   },
 ];

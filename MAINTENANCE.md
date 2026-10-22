@@ -3,7 +3,7 @@
 A personal portfolio built with Next.js, React, and Framer Motion. It presents
 client websites, TunisianPass, student tools, iOS apps, hackathons, and personal photos.
 WeLockIn is a desktop focus app; welock.in is its website. Its mobile version is
-in development. WeLock (welock.app) is a separate web app for study rooms.
+available on the iOS App Store. WeLock (welock.app) is a separate web app for study rooms.
 It preserves the original section order, floating navigation, centered introduction,
 circular portrait in the hero, alternating project cards, and light/dark palette.
 The hero has a static warm background; short foreground animations and interaction
@@ -45,8 +45,14 @@ The Vercel project `landing-thehnh` builds this repository's `main` branch.
 Update the public identity, metadata and genuine content modification date in
 `libs/seo.js`. See [SEO notes](docs/SEO.md) for configuration and validation.
 
-All 18 projects remain in the original single-column Projects section, followed by
-the two hackathon entries. Development status appears on the relevant card.
+The Projects section has category filters: All projects, Websites (13), Mobile apps (4),
+Desktop apps (1), and Hackathons (2). All 20 entries are rendered by default, preserving
+their server-rendered content and the original alternating card layout. Category counts
+come from the data, and the selected filter announces the number of results.
+Use `category: "website"`, `"mobile"`, or `"desktop"` in `libs/data.js`; hackathons
+remain in `hackathonsData`, with optional `projectLink` and `previewLink` fields.
+Mobile cards link directly to their iOS App Store pages and state that Android is not
+available yet. Development status still appears on projects that are in progress.
 The navigation and section order remain Home, About, Projects, Skills, Life, Contact.
 
 ## Contact
