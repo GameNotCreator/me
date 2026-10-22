@@ -47,8 +47,6 @@ The contact section uses direct email and telephone links. No email delivery ser
 
 See [maintenance notes](MAINTENANCE.md) for photo processing, preview sources, content provenance and deployment details, and [SEO notes](docs/SEO.md) for metadata configuration.
 
-## Deployment and provenance
+## Deployment
 
 The production site is deployed on Vercel from `main`. Its canonical address is **https://www.thehnh.tech/**.
-
-This repository is a fork of [Hedi-Fourati/my](https://github.com/Hedi-Fourati/my).
