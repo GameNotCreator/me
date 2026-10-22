@@ -4,7 +4,7 @@ import * as m from "framer-motion/m";
 import { useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import portrait from "@/public/photo.jpg";
-import { Github, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import { useSectionInView } from "@/libs/hooks";
 
 export default function Hero() {
@@ -31,6 +31,7 @@ export default function Hero() {
           <div className="hero-socials">
             <m.a className="social-link" href="https://github.com/GameNotCreator" target="_blank" rel="noopener noreferrer" aria-label="Hedi Fourati on GitHub" whileHover={reduceMotion ? undefined : { y: -3 }} whileTap={reduceMotion ? undefined : { scale: 0.95 }}><Github size={23} aria-hidden="true" /></m.a>
             <m.a className="social-link" href="mailto:hedi.fourati@epfl.ch" aria-label="Email Hedi Fourati" whileHover={reduceMotion ? undefined : { y: -3 }} whileTap={reduceMotion ? undefined : { scale: 0.95 }}><Mail size={23} aria-hidden="true" /></m.a>
+            <m.a className="social-link" href="https://www.linkedin.com/in/hedi-fourati-816304218/" target="_blank" rel="noopener noreferrer" aria-label="Hedi Fourati on LinkedIn (opens in a new tab)" whileHover={reduceMotion ? undefined : { y: -3 }} whileTap={reduceMotion ? undefined : { scale: 0.95 }}><Linkedin size={23} aria-hidden="true" /></m.a>
           </div>
         </m.div>
       </div>
