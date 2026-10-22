@@ -46,11 +46,15 @@ The Vercel project `landing-thehnh` builds this repository's `main` branch.
 Update the public identity, metadata and genuine content modification date in
 `libs/seo.js`. See [SEO notes](docs/SEO.md) for configuration and validation.
 
-The Projects section has category filters: All projects, Websites (13), Mobile apps (4),
-Desktop apps (1), and Hackathons (2). All 19 entries (17 projects and 2 hackathons) are
+The Projects section has category filters: All projects, Websites (15), Mobile apps (4),
+Desktop apps (1), and Hackathons (2). All 21 entries (19 projects and 2 hackathons) are
 rendered by default, preserving their server-rendered content and the original
 alternating card layout. Category counts
 come from the data, and the selected filter announces the number of results.
+Project priority follows the manual order in `projectsData`, and filtering preserves
+that order. Keep the exact relative order of the 17 projects that preceded MathParty
+and FinanceTracker. MathParty sits after Picture me by Saudade and before FocusGym;
+FinanceTracker stays last as a prototype for a freelance opportunity that did not go ahead.
 Use `category: "website"`, `"mobile"`, or `"desktop"` in `libs/data.js`; hackathons
 remain in `hackathonsData`, with optional `projectLink` and `previewLink` fields.
 Projects can optionally provide a `categories` array instead of relying on their single
@@ -61,6 +65,9 @@ Mobile cards link directly to their iOS App Store pages and state that Android i
 available yet. Development status still appears on projects that are in progress.
 The optional `appStoreLabel` changes the App Store button text; WeLockIn uses
 `"See on App Store"`, while other apps retain the default `"App Store (iOS)"`.
+FinanceTracker uses `linkLabel: "Try demo"` and includes a `demoCredentials` object.
+The owner explicitly authorised publishing this shared demo account for fictional
+data. Keep its credentials in the demo block displayed on the project card.
 The navigation and section order remain Home, About, Projects, Skills, Life, Contact.
 
 ## Contact
@@ -77,10 +84,19 @@ Nine authentic homepage captures were initially taken in the browser on 6 Octobe
 opens the actual website. The local WebP copies avoid third-party requests on page load.
 The WeLock (welock.app) preview was refreshed on 22 October 2026 after entering a
 display name to reach the homepage. The other eight captures remain from 6 October 2026.
+The FinanceTracker dashboard preview was supplied by the owner on 22 October 2026.
+It is an authentic screenshot showing fictional demo transactions and budgets,
+stored in `public/previews/finance-tracker.webp`.
+The MathParty guest lobby preview was added on 22 October 2026 from
+`https://mathparty.thehnh.tech/` and lives in `public/previews/mathparty.webp`.
+It shows room creation and multiplayer rooms at 1495 × 799. The static image import
+preserves its actual aspect ratio in the project card.
 
 | Preview | Source |
 | --- | --- |
 | TunisianPass | https://tunisian-pass.tn/ |
+| FinanceTracker | https://finance.thehnh.tech/ |
+| MathParty | https://mathparty.thehnh.tech/ |
 | WeLockIn | https://welock.in/ |
 | WeLock | https://welock.app/ |
 | MyDiarySkills | https://mydiaryskills.thehnh.tech/ |
@@ -103,3 +119,9 @@ more than 20 restaurants and shops. FocusGym's 100 potential buyers per month
 is an estimate, not a completed-sales count. App Store links were checked when
 the portfolio was updated. Screenshots retained from earlier work are not new
 captures of the current public websites.
+FinanceTracker is a Codex-assisted prototype for a freelance opportunity that did
+not go ahead. It is retained as a working demo with transaction tracking, budgets,
+CSV imports, and report exports, as described by the owner.
+MathParty is a live, turn-based maths game platform for students. Its players solve
+problems from France's Course aux nombres before a bomb explodes, as described by
+the owner.

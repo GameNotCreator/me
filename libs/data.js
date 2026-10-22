@@ -10,6 +10,8 @@ import nine from "@/public/projects/9.png";
 import ten from "@/public/projects/10.png";
 import saudadePhoto from "@/public/images/Work/saudade-qr-detail.webp";
 import welockPreview from "@/public/previews/welock.webp";
+import financeTrackerPreview from "@/public/previews/finance-tracker.webp";
+import mathpartyPreview from "@/public/previews/mathparty.webp";
 
 export const links = [
   {
@@ -52,6 +54,8 @@ export const images = {
   ten,
 };
 
+// Curated manual display order: preserve existing priorities and keep prototypes
+// toward the end of the list.
 export const projectsData = [
   {
     id: "tunisianpass",
@@ -159,6 +163,23 @@ export const projectsData = [
     link: "https://saudade.thehnh.tech/",
     appStoreLink: "https://apps.apple.com/ch/app/picture-me-by-saudade/id6765511449",
     accent: "#9c6571",
+  },
+  {
+    id: "mathparty",
+    title: "MathParty",
+    category: "website",
+    status: "Live web app",
+    description:
+      "I built MathParty to make maths practice a live, turn-based game for students. Players race to solve problems from France’s Course aux nombres before a bomb explodes.",
+    role: "Web app development",
+    outcome: "Live maths games · Turn-based play",
+    tags: ["Maths", "Student games", "Real-time", "Turn-based"],
+    imageUrl: mathpartyPreview,
+    imageAlt: "MathParty guest lobby with room creation and multiplayer rooms",
+    previewType: "website",
+    previewDomain: "mathparty.thehnh.tech",
+    link: "https://mathparty.thehnh.tech/",
+    accent: "#8b735d",
   },
   {
     id: "focusgym",
@@ -326,6 +347,28 @@ export const projectsData = [
     imageUrl: five,
     link: "https://interact-club-marsa-mind.vercel.app/",
     accent: "#94768b",
+  },
+  {
+    id: "finance-tracker",
+    title: "FinanceTracker",
+    category: "website",
+    status: "Freelance prototype",
+    description:
+      "I vibe-coded this small finance template with Codex for a potential freelance project. The opportunity did not go ahead, so I kept the prototype as a working demo. It includes transaction tracking, budgets, CSV imports, and report exports.",
+    role: "Prototype development · Codex-assisted",
+    outcome: "Freelance project did not go ahead · Live demo",
+    tags: ["Codex", "Prototype", "Web app", "Finance"],
+    imageUrl: financeTrackerPreview,
+    imageAlt: "Finance Tracker demo dashboard with fictional transactions and budgets",
+    previewType: "website",
+    previewDomain: "finance.thehnh.tech",
+    link: "https://finance.thehnh.tech/",
+    linkLabel: "Try demo",
+    demoCredentials: {
+      email: "tester@finance.dev",
+      password: "test1234",
+    },
+    accent: "#54766a",
   },
 ];
 

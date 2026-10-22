@@ -4,9 +4,12 @@ import { ArrowUpRight, Globe } from "lucide-react";
 import * as m from "framer-motion/m";
 import { useReducedMotion } from "framer-motion";
 
-export default function ProjectCard({ title, description, role, outcome, tags, imageUrl, imageAlt, imageFit, imagePosition, previewType, previewDomain, link, status, appStoreLink, appStoreLabel = "App Store (iOS)" }) {
+export default function ProjectCard({ title, description, role, outcome, tags, imageUrl, imageAlt, imageFit, imagePosition, previewType, previewDomain, link, status, appStoreLink, appStoreLabel = "App Store (iOS)", linkLabel, demoCredentials }) {
   const reduceMotion = useReducedMotion();
   const isWebsite = previewType === "website" && Boolean(imageUrl);
+  const previewWidth = imageUrl?.width || 1440;
+  const previewHeight = imageUrl?.height || 1000;
+  const websiteLabel = linkLabel || (appStoreLink ? "Website" : "View Project");
   const linkFeedback = reduceMotion ? {} : { whileHover: { scale: 1.025 }, whileTap: { scale: 0.98 } };
   return (
     <m.article className="project-card"
@@ -20,7 +23,7 @@ export default function ProjectCard({ title, description, role, outcome, tags, i
             <span className="project-browser-controls" aria-hidden="true"><span /><span /><span /></span>
             <span className="project-browser-address"><Globe size={12} aria-hidden="true" /><span>{previewDomain}</span></span>
           </div>
-          <Image src={imageUrl} alt={imageAlt || `${title} website screenshot`} width={1440} height={1000} sizes="(max-width: 959px) calc(100vw - 5rem), (max-width: 1167px) calc(52vw - 5rem), 33rem" className="project-website-image" style={{ objectFit: "contain" }} />
+          <Image src={imageUrl} alt={imageAlt || `${title} website screenshot`} width={previewWidth} height={previewHeight} sizes="(max-width: 959px) calc(100vw - 5rem), (max-width: 1167px) 52vw, 37rem" className="project-website-image" style={{ objectFit: "contain", aspectRatio: `${previewWidth} / ${previewHeight}` }} />
         </a> : imageUrl ? <Image src={imageUrl} alt={imageAlt || `${title} project preview`} fill sizes="(max-width: 959px) calc(100vw - 2rem), (max-width: 1167px) 52vw, 37rem" className="project-image" style={{ objectFit: imageFit || "cover", objectPosition: imagePosition || "top" }} /> : <div className="project-wordmark" aria-hidden="true">{title}</div>}
         {!isWebsite && status && <span className="project-status">{status}</span>}
       </div>
@@ -31,10 +34,18 @@ export default function ProjectCard({ title, description, role, outcome, tags, i
         {role && <p className="project-role"><span>My role</span>{role}</p>}
         {outcome && <p className="project-outcome">{outcome}</p>}
         <ul className="project-tags" aria-label={`${title} details`}>{tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
+        {demoCredentials && <aside className="project-demo" aria-label={`${title} demo login`}>
+          <p className="project-demo-title">Demo login</p>
+          <dl>
+            <dt>Email</dt><dd><code>{demoCredentials.email}</code></dd>
+            <dt>Password</dt><dd><code>{demoCredentials.password}</code></dd>
+          </dl>
+          <p className="project-demo-note">Shared demo account. Use fictional data only.</p>
+        </aside>}
         {appStoreLink && <p className="project-availability">Available on iOS. Android is not available yet.</p>}
         {(link || appStoreLink) && <div className="project-links">
           {appStoreLink && <m.a href={appStoreLink} target="_blank" rel="noopener noreferrer" className="button button-primary" aria-label={`${appStoreLabel}: ${title} (opens in a new tab)`} {...linkFeedback} transition={{ duration: 0.15 }}>{appStoreLabel} <ArrowUpRight size={16} aria-hidden="true" /></m.a>}
-          {link && <m.a href={link} target="_blank" rel="noopener noreferrer" className={`button ${appStoreLink ? "button-secondary" : "button-primary"}`} aria-label={`Visit ${title} website (opens in a new tab)`} {...linkFeedback} transition={{ duration: 0.15 }}>{appStoreLink ? "Website" : "View Project"} <ArrowUpRight size={16} aria-hidden="true" /></m.a>}
+          {link && <m.a href={link} target="_blank" rel="noopener noreferrer" className={`button ${appStoreLink ? "button-secondary" : "button-primary"}`} aria-label={`${websiteLabel}: ${title} (opens in a new tab)`} {...linkFeedback} transition={{ duration: 0.15 }}>{websiteLabel} <ArrowUpRight size={16} aria-hidden="true" /></m.a>}
         </div>}
       </div>
     </m.article>
