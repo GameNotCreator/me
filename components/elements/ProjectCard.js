@@ -1,18 +1,23 @@
 "use client";
 import Image from "next/image";
-import { ArrowDown, ArrowUpRight, Code2, Globe, Sparkles } from "lucide-react";
+import { ArrowDown, ArrowUpRight, ChevronDown, Code2, Globe, Sparkles } from "lucide-react";
+import ImageGallery from "@/components/elements/Images/ImageGallery";
 import * as m from "framer-motion/m";
 import { useReducedMotion } from "framer-motion";
 
-export default function ProjectCard({ id, title, description, role, outcome, tags, imageUrl, imageAlt, imageFit, imagePosition, previewType, previewDomain, previewStack, link, status, appStoreLink, appStoreLabel = "App Store (iOS)", linkLabel, demoCredentials, sourceLinks = [], availability, highlightDetails = [], highlighted = false, hidden = false, alternate = false }) {
+export default function ProjectCard({ id, title, subtitle, year, description, role, outcome, tags, imageUrl, imageAlt, imageFit, imagePosition, previewType, previewDomain, previewStack, link, status, appStoreLink, appStoreLabel = "App Store (iOS)", linkLabel, demoCredentials, sourceLinks = [], availability, highlightDetails = [], highlightLabel = "Selected project", story = [], gallery = [], expandedStory = false, highlighted = false, hidden = false, alternate = false }) {
   const reduceMotion = useReducedMotion();
   const isWebsite = previewType === "website" && Boolean(imageUrl);
   const previewWidth = imageUrl?.width || 1440;
   const previewHeight = imageUrl?.height || 1000;
   const websiteLabel = linkLabel || (appStoreLink ? "Website" : "View Project");
+  const hasStory = story.length > 0 || gallery.length > 0;
+  const useStoryOverview = highlighted && highlightDetails.length === 0 && story.length > 0;
+  const selectedDetails = useStoryOverview ? story.slice(0, 1) : highlightDetails;
+  const buildDetails = useStoryOverview ? story.slice(1) : story;
   const linkFeedback = reduceMotion ? {} : { whileHover: { scale: 1.025 }, whileTap: { scale: 0.98 } };
   return (
-    <m.article className={`project-card${alternate ? " is-alternate" : ""}${highlighted ? " project-card-highlight" : ""}`}
+    <m.article className={`project-card${alternate ? " is-alternate" : ""}${highlighted ? " project-card-highlight" : ""}${hasStory ? " has-story" : ""}`}
       hidden={hidden}
       data-project-id={id}
       initial={reduceMotion ? false : { opacity: 0.8, y: 16 }}
@@ -36,14 +41,16 @@ export default function ProjectCard({ id, title, description, role, outcome, tag
         {!isWebsite && status && <span className="project-status">{status}</span>}
       </div>
       <div className="project-content">
-        {highlighted && <p className="project-highlight-label"><Sparkles size={14} aria-hidden="true" />Selected project</p>}
+        {highlighted && <p className="project-highlight-label"><Sparkles size={14} aria-hidden="true" />{highlightLabel}</p>}
         <h3>{title}</h3>
+        {subtitle && <p className="project-subtitle">{subtitle}</p>}
+        {hasStory && year && <p className="project-year">{year}</p>}
         {isWebsite && status && <p className="project-preview-status">{status}</p>}
         <p className="project-description">{description}</p>
         {role && <p className="project-role"><span>My role</span>{role}</p>}
         {outcome && <p className="project-outcome">{outcome}</p>}
-        {highlighted && highlightDetails.length > 0 && <dl className="project-highlight-details">
-          {highlightDetails.map(({ label, description: detail }) => <div key={label}><dt>{label}</dt><dd>{detail}</dd></div>)}
+        {highlighted && selectedDetails.length > 0 && <dl className="project-highlight-details">
+          {selectedDetails.map(({ label, description: detail }) => <div key={label}><dt>{label}</dt><dd>{detail}</dd></div>)}
         </dl>}
         <ul className="project-tags" aria-label={`${title} details`}>{tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
         {demoCredentials && <aside className="project-demo" aria-label={`${title} demo login`}>
@@ -61,6 +68,15 @@ export default function ProjectCard({ id, title, description, role, outcome, tag
           {sourceLinks.map(({ label, href }) => <m.a key={href} href={href} target="_blank" rel="noopener noreferrer" className="button button-secondary" aria-label={`${label}: ${title} (opens in a new tab)`} {...linkFeedback} transition={{ duration: 0.15 }}>{label}<ArrowUpRight size={16} aria-hidden="true" /></m.a>)}
         </div>}
       </div>
+      {hasStory && <details className="project-story" open={expandedStory}>
+        <summary><span>Build story & photos{gallery.length > 0 && <span className="project-story-count">{gallery.length} photos</span>}</span><ChevronDown size={18} aria-hidden="true" /></summary>
+        <div className="project-story-content">
+          {buildDetails.length > 0 && <dl className="project-build-details">
+            {buildDetails.map(({ label, description: detail }) => <div key={label}><dt>{label}</dt><dd>{detail}</dd></div>)}
+          </dl>}
+          {gallery.length > 0 && <ImageGallery galleries={{ [title]: gallery }} showCategoryTitles={false} className="project-media-gallery" />}
+        </div>
+      </details>}
     </m.article>
   );
 }

@@ -2,12 +2,41 @@
 import { useSectionInView } from "@/libs/hooks";
 import ImageGallery from "@/components/elements/Images/ImageGallery";
 
+const activities = [
+  {
+    title: "Charity",
+    description: "A few moments from community activities and volunteering.",
+    featured: ["6.png", "7.jpg", "9.jpg", "13.jpg"],
+  },
+  {
+    title: "Chess",
+    description: "Games, events, and chessboards from my personal archive.",
+    featured: ["7.jpg", "10.jpg", "13.jpg", "2.jpg"],
+  },
+];
+
 export default function Life({ galleries }) {
   const { ref } = useSectionInView("life", 0.1);
   return (
     <section id="life" ref={ref} className="life-section portfolio-section">
-      <h2 className="section-title">Get to know more about my life</h2>
-      <ImageGallery galleries={galleries} />
+      <h2 className="section-title">Beyond the projects</h2>
+      <div className="activity-list">
+        {activities.map(({ title, description, featured }) => {
+          const photos = galleries[title] || [];
+          const isFeatured = (photo) => featured.includes(photo.src.split("/").pop());
+          const selection = featured.flatMap((filename) => photos.filter((photo) => photo.src.endsWith(`/${filename}`)));
+          const archive = photos.filter((photo) => !isFeatured(photo));
+          return <article className="activity-card" key={title}>
+            <h3>{title}</h3>
+            <p className="activity-description">{description}</p>
+            <ImageGallery galleries={{ [title]: selection }} showCategoryTitles={false} className="activity-gallery" />
+            {archive.length > 0 && <details className="activity-archive">
+              <summary>More from my {title.toLowerCase()} archive <span>{archive.length} photos</span></summary>
+              <ImageGallery galleries={{ [title]: archive }} showCategoryTitles={false} className="activity-gallery" />
+            </details>}
+          </article>;
+        })}
+      </div>
     </section>
   );
 }

@@ -109,6 +109,82 @@ export const projectsData = [
     accent: "#7568b5",
   },
   {
+    id: "gustave-motors",
+    title: "Gustave Motors",
+    subtitle: "Electric Solar Car",
+    category: "engineering",
+    highlight: true,
+    highlightLabel: "Personal favourite",
+    year: "2022–2023",
+    status: "Engineering team project",
+    description:
+      "After co-founding our school’s engineering club in 2022, I worked with students and mentors on Gustave Motors: a solar-electric car built around a custom chassis, recovered parts, batteries and a solar panel.",
+    role: "Engineering club co-founder · Team member",
+    outcome: "Projet X 2023 · High-school prize",
+    tags: ["Mechanical design", "Electronics", "Solar energy"],
+    imageUrl: "/images/Club/8.jpg",
+    imageAlt: "Solar panel mounted on the metal chassis of the vehicle prototype",
+    imageFit: "contain",
+    imagePosition: "center",
+    gallery: [
+      { src: "/images/Club/8.jpg", caption: "Solar panel mounted on the vehicle prototype.", fit: "contain" },
+      { src: "/images/Club/1.jpg", caption: "Engineering club members behind the solar vehicle prototype." },
+      { src: "/images/Club/24.jpg", caption: "Two team members beside the vehicle in the workshop." },
+    ],
+    link: "https://www.linkedin.com/pulse/la-r%C3%A9volution-%C3%A9tudiante-de-linvention-dun-v%C3%A9hicule-21hxc/",
+    linkLabel: "Read article",
+    story: [
+      {
+        label: "Building the prototype",
+        description:
+          "We designed the chassis, sourced reusable car parts, and tested the motor and batteries before assembling the drivetrain and electrical system.",
+      },
+      {
+        label: "The competition and beyond",
+        description:
+          "The car was not finished when the club received the high-school prize at Lycée Pierre Mendès-France on 25 May 2023. We later improved the brakes, indicators, wiring and dashboard.",
+      },
+    ],
+    accent: "#9a774b",
+  },
+  {
+    id: "a-bot",
+    title: "A-BOT",
+    category: "engineering",
+    highlight: true,
+    year: "2023–2024",
+    status: "Student robotics prototype",
+    description:
+      "During my 2023–2024 term as club president, our team developed A-BOT, a desktop robot prototype exploring fatigue cues and break reminders with camera input, movement, a display and sound.",
+    role: "Engineering club co-founder · President (2023–2024)",
+    outcome: "Projet X 2024 · High-school prize",
+    tags: ["Robotics", "HuskyLens", "micro:bit"],
+    imageUrl: "/images/Club/6.jpg",
+    imageAlt: "A-BOT prototype with a blue cat-shaped body, displays and front sensors",
+    imageFit: "contain",
+    imagePosition: "center",
+    gallery: [
+      { src: "/images/Club/6.jpg", caption: "A-BOT with its cat-shaped body, displays and sensors.", fit: "contain" },
+      { src: "/images/Club/28.jpg", caption: "HuskyLens camera module during a face-detection test.", fit: "contain" },
+      { src: "/images/Club/30.jpg", caption: "Team members working beside a laptop and wired robot electronics." },
+    ],
+    link: "https://www.linkedin.com/pulse/a-bot-linnovation-%C3%A9tudiante-contre-le-burn-out-club-ing%C3%A9nieur-lgf-koz2e/",
+    linkLabel: "Read article",
+    story: [
+      {
+        label: "Building the robot",
+        description:
+          "We combined a HuskyLens vision sensor, a wheeled micro:bit platform, and obstacle and drop sensors. The prototype used visual and sound cues to suggest breaks.",
+      },
+      {
+        label: "Refining the design",
+        description:
+          "The team added a cat-shaped shell, servo-driven arms and OLED eyes while refining the assembly. A-BOT received the high-school prize at Lycée Gustave Flaubert, La Marsa, on 25 May 2024.",
+      },
+    ],
+    accent: "#537f92",
+  },
+  {
     id: "welock",
     title: "WeLock",
     category: "website",

@@ -34,8 +34,10 @@ it when updating the framework.
 - `components/sections/Hero.js` and `About.js` contain the introduction and personal story.
 - `app/globals.css` contains the visual design and responsive layout.
 - Add project photos to `public/projects/`, import them in `libs/data.js`, and set the relevant entry's `imageUrl`. Website captures live in `public/previews/` and use `previewType: "website"` with `previewDomain`. Entries without a supplied image use their names as visual cards.
-- The existing Work album in Life now contains its 25 original photos plus 19 supplied photos in `public/images/Work/`. Captions for the supplied images live in `libs/work-photos.js` and appear in the preview. Saudade also uses its T-shirt photo on the project card. Web copies are resized, oriented and compressed; the supplied originals remain in the owner's archive. `node scripts/prepare-work-photos.cjs /path/to/extracted/photos` regenerates these copies.
-- The Life gallery reads JPG, JPEG, PNG, and WebP photos from folders in `public/images/`.
+- The original Work files (25 original photos plus 19 supplied photos) remain in `public/images/Work/`, with supplied captions in `libs/work-photos.js`. They are no longer displayed as a general-purpose feed. Saudade still uses its T-shirt photo on its project card. `node scripts/prepare-work-photos.cjs /path/to/extracted/photos` regenerates the supplied web copies.
+- Life now contains Charity and Chess activity cards, each with four featured photos and a collapsed archive. Update the filename selections in `components/sections/Life.js` when the owner chooses which photos to exclude. The page explicitly selects these two albums from the gallery metadata; it no longer automatically publishes every image folder.
+- Engineering photos are attached to the corresponding project in `libs/data.js` using `gallery`. Originals in Club remain unchanged. Native build-story disclosures open initially in Engineering Projects; their photo buttons reuse the accessible gallery dialog.
+- `libs/certificates.js` contains only supplied documents. The Certificates & Awards section currently shows the genuine Projet X 2023 participation certificate photograph, with an enlarged preview and an original-document link. It is a participation certificate, not an award certificate. Add further certificates and diploma scans when supplied.
 - `libs/gallery-photos.js` provides descriptive English alt text and preview captions for the original Life photos. Keep these descriptions consistent with the actual photographs.
 - `public/resume.pdf` is the updated one-page English CV, with the supplied Swiss contact details, EPFL studies, portfolio link, client work, released products, and hackathons. The original supplied CV is preserved outside the repository.
 
@@ -46,13 +48,14 @@ The Vercel project `landing-thehnh` builds this repository's `main` branch.
 Update the public identity, metadata and genuine content modification date in
 `libs/seo.js`. See [SEO notes](docs/SEO.md) for configuration and validation.
 
-The Projects section starts with Highlights (3), followed by All projects (22),
-Open source (1), Websites (15), Mobile apps (5), Desktop apps (1), and Hackathons (2).
-Highlights is selected initially: TunisianPass, WeLockIn, and Cipher. Use
+The Projects section starts with Highlights (5), followed by All projects (24),
+Engineering Projects (2), Open source (1), Websites (15), Mobile apps (5),
+Desktop apps (1), and Hackathons (2).
+Highlights is selected initially: TunisianPass, WeLockIn, Gustave Motors, A-BOT, and Cipher. Use
 `highlight: true` to include a project and `highlightDetails` for its additional
 labelled paragraphs. Gold borders, a hover/focus glow, and a small Framer Motion
 hover lift apply in the Highlights view. Reduced motion disables the lift.
-All 22 entries (20 projects and 2 hackathons) remain in the server-rendered HTML.
+All 24 entries (22 projects and 2 hackathons) remain in the server-rendered HTML.
 Non-selected cards use `hidden`, including for assistive technology and keyboard
 navigation. Category counts come from the data, and the selected filter announces
 the number of results. The alternating layout uses each visible card's index.
@@ -60,9 +63,9 @@ Project priority follows the manual order in `projectsData`, and filtering prese
 that order. Keep the exact relative order of the 17 projects that preceded MathParty
 and FinanceTracker. MathParty sits after Picture me by Saudade and before FocusGym;
 FinanceTracker stays last as a prototype for a freelance opportunity that did not go ahead.
-Cipher sits after Saudade and before MathParty. The existing projects' relative
+Gustave Motors and A-BOT sit after WeLockIn. Cipher sits after Saudade and before MathParty. The existing projects' relative
 order is preserved in every filter.
-Use `category: "website"`, `"mobile"`, or `"desktop"` in `libs/data.js`; hackathons
+Use `category: "website"`, `"mobile"`, `"desktop"`, or `"engineering"` in `libs/data.js`; hackathons
 remain in `hackathonsData`, with optional `projectLink` and `previewLink` fields.
 Projects can optionally provide a `categories` array instead of relying on their single
 `category`. WeLockIn uses `category: "desktop"` and `categories: ["desktop", "mobile"]`,
@@ -80,7 +83,11 @@ The optional `appStoreLabel` changes the App Store button text; WeLockIn uses
 FinanceTracker uses `linkLabel: "Try demo"` and includes a `demoCredentials` object.
 The owner explicitly authorised publishing this shared demo account for fictional
 data. Keep its credentials in the demo block displayed on the project card.
-The navigation and section order remain Home, About, Projects, Skills, Life, Contact.
+The floating navigation remains Home, About, Projects, Skills, Life, Contact.
+Certificates & Awards appears after Skills, with a direct link in About.
+`story` provides labelled build details, and `gallery` supplies associated photos.
+The first story block becomes the Highlights overview without duplicating it in
+the disclosure; Engineering Projects opens both full build stories by default.
 
 ## Contact
 
@@ -146,3 +153,14 @@ imply a license for the separate backend repository. It is experimental, with a
 custom cryptographic protocol that has not been independently audited. Optional
 AI chats are processed in plaintext by the backend and Groq. Do not describe it
 as an audited secure messenger or claim a public app-store release.
+The owner identified Gustave Motors as the solar car awarded the Projet X 2023
+high-school prize, and A-BOT as the Projet X 2024 high-school prize project. The
+club's LinkedIn articles corroborate both results and Hedi's co-founder/president
+roles. Detailed individual engineering responsibilities are still to be supplied.
+Sources:
+- https://www.linkedin.com/pulse/la-r%C3%A9volution-%C3%A9tudiante-de-linvention-dun-v%C3%A9hicule-21hxc/
+- https://www.linkedin.com/pulse/a-bot-linnovation-%C3%A9tudiante-contre-le-burn-out-club-ing%C3%A9nieur-lgf-koz2e/
+Gustave Motors uses Club photos 8, 1 and 24; A-BOT uses 6, 28 and 30. Their
+original files are unchanged. The A-BOT selections match images in the article.
+Keep the robot described as an experimental student prototype without medical
+effectiveness claims. The 2025 article publication dates are not the project years.

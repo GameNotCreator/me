@@ -11,6 +11,7 @@ import { useReducedMotion } from "framer-motion";
 const categories = [
   { id: "highlights", label: "Highlights", description: "These are the projects I’ve learned the most from and put the most thought and energy into. They’re the ones I’m especially proud of." },
   { id: "all", label: "All projects" },
+  { id: "engineering", label: "Engineering Projects", description: "Physical projects built with my engineering club. Explore the prototypes, the construction process, and the stories behind them." },
   { id: "opensource", label: "Open source", description: "Projects I’m building in the open. Explore the mobile app and its backend, read the code, or contribute on GitHub." },
   { id: "website", label: "Websites" },
   { id: "mobile", label: "Mobile apps" },
@@ -38,7 +39,7 @@ export default function Projects() {
   return (
     <section id="projects" ref={ref} className="projects-section portfolio-section text-center">
       <h2 className="section-title">Projects</h2>
-      <p className="section-copy">The websites, businesses, and apps I have built, alongside the projects I am developing next.</p>
+      <p className="section-copy">From websites and apps to physical builds, these are the projects I’ve created, delivered, and explored.</p>
       <div className="project-filters" role="group" aria-label="Filter projects by category">
         {categories.map(({ id, label }) => <button
           key={id}
@@ -60,6 +61,7 @@ export default function Projects() {
           {projectsData.map((project) => <ProjectCard key={project.id} {...project}
             hidden={!visibleIndexes.has(project.id)}
             alternate={visibleIndexes.get(project.id) % 2 === 1}
+            expandedStory={activeCategory === "engineering"}
             highlighted={activeCategory === "highlights" && Boolean(project.highlight)} />)}
         </div>
         <Hackathons hidden={!showHackathons} />

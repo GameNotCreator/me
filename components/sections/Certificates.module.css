@@ -1,0 +1,103 @@
+.section {
+  width: 100%;
+}
+
+.list {
+  display: grid;
+  gap: 32px;
+  width: 100%;
+  max-width: 60rem;
+  margin-inline: auto;
+}
+
+.certificate {
+  display: grid;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--background);
+}
+
+.preview {
+  min-width: 0;
+  padding: 24px;
+  background: var(--surface);
+}
+
+.certificate .gallery > div {
+  margin-top: 0;
+}
+
+.gallery :global(.photo-item) {
+  width: 100%;
+  max-width: 320px;
+}
+
+.gallery :global(.photo-button) {
+  border-radius: 4px;
+  background: var(--surface);
+}
+
+.previewHint {
+  display: block;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+.content {
+  min-width: 0;
+  align-self: center;
+  padding: 28px 24px;
+}
+
+.type {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.content h3 {
+  margin: 0 0 16px;
+  font-size: clamp(24px, 3vw, 28px);
+  font-weight: 600;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.meta {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.meta span {
+  display: block;
+}
+
+.description {
+  margin: 0 0 24px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.content a {
+  max-width: 100%;
+  font-size: 12px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media (min-width: 700px) {
+  .certificate {
+    grid-template-columns: minmax(0, 42%) minmax(0, 58%);
+  }
+
+  .content {
+    padding: 36px;
+  }
+}

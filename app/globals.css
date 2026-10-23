@@ -51,7 +51,7 @@ body { margin: 0; background: var(--background); color: var(--foreground); font-
 a, button, input, textarea { -webkit-tap-highlight-color: transparent; }
 a { text-underline-offset: 4px; }
 a, button { transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease; }
-a:focus-visible, button:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
 input:focus-visible, textarea:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 button { cursor: pointer; font: inherit; }
 button:disabled { cursor: wait; opacity: 0.6; }
@@ -135,6 +135,8 @@ button:disabled { cursor: wait; opacity: 0.6; }
 .project-status { position: absolute; top: 16px; left: 16px; max-width: calc(100% - 32px); padding: 7px 12px; border-radius: 50px; background: var(--nav-background); font-size: 12px; font-weight: 600; color: var(--foreground); line-height: 1.5; }
 .project-content { min-width: 0; padding: 28px 24px; text-align: left; }
 .project-preview-status { margin: 0 0 20px; color: var(--muted); font-size: 12px; font-weight: 600; line-height: 1.5; }
+.project-year { margin: 0 0 14px; font-size: 13px; color: var(--muted); }
+.project-subtitle { margin: 0 0 8px; font-size: 16px; font-weight: 500; color: var(--muted); }
 .project-content h3 { margin: 0 0 12px; font-size: clamp(24px,3vw,28px); line-height: 1.25; font-weight: 600; text-transform: uppercase; overflow-wrap: anywhere; text-wrap: balance; }
 .project-description { color: var(--foreground); font-size: 16px; line-height: 1.7; margin: 0 0 20px; }
 .project-role { font-size: 14px; line-height: 1.6; margin: 0 0 12px; color: var(--muted); }
@@ -152,6 +154,21 @@ button:disabled { cursor: wait; opacity: 0.6; }
 .project-demo code { font-size: 13px; overflow-wrap: anywhere; user-select: all; }
 .project-demo-note { margin: 12px 0 0; font-size: 12px; line-height: 1.6; color: var(--muted); }
 .project-links .button { font-size: 12px; text-transform: uppercase; padding-inline: 18px; }
+.project-story { order: 2; flex-basis: 100%; width: 100%; min-width: 0; border-top: 1px solid var(--border); text-align: left; }
+.project-story > summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; cursor: pointer; font-size: 14px; font-weight: 600; list-style: none; background: var(--surface); }
+.project-story > summary::-webkit-details-marker { display: none; }
+.project-story > summary > svg { flex-shrink: 0; transition: transform 180ms ease; }
+.project-story[open] > summary > svg { transform: rotate(180deg); }
+.project-card-highlight .project-story > summary { background: var(--highlight-tint); }
+.project-story-count { display: inline-block; margin-left: 12px; color: var(--muted); font-size: 12px; font-weight: 400; }
+.project-story-content { padding: 24px; }
+.project-build-details { display: grid; gap: 24px; margin: 0; }
+.project-build-details dt { margin-bottom: 8px; font-size: 14px; font-weight: 600; }
+.project-build-details dd { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
+.project-media-gallery > div { margin-top: 24px; }
+.project-media-gallery .photo-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.project-media-gallery .photo-item { width: 100%; }
+.project-media-gallery .photo-button { aspect-ratio: 4 / 3; border-radius: 8px; }
 .text-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 14px; font-weight: 600; }
 .hackathons-block { max-width: 52rem; width: 100%; margin-top: 100px; }
 .hackathon-list { display: flex; flex-direction: column; gap: 32px; }
@@ -164,6 +181,18 @@ button:disabled { cursor: wait; opacity: 0.6; }
 .skills-list li { display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 12px 18px; background: var(--selected); border-radius: 12px; font-size: 16px; }
 .skills-list img { width: 24px; height: 24px; }
 .life-section { padding-inline: 16px; }
+.activity-list { display: grid; gap: 40px; max-width: 70rem; margin-inline: auto; }
+.activity-card { min-width: 0; padding: 24px; border: 1px solid var(--border); border-radius: 16px; }
+.activity-card h3 { margin: 0 0 12px; font-size: 24px; font-weight: 600; text-transform: uppercase; }
+.activity-description { margin: 0 0 24px; color: var(--muted); font-size: 15px; }
+.activity-card .activity-gallery > div { margin-top: 0; }
+.activity-gallery .photo-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.activity-gallery .photo-item { width: 100%; }
+.activity-gallery .photo-button { aspect-ratio: 4 / 3; border-radius: 8px; }
+.activity-archive { margin-top: 24px; }
+.activity-archive summary { cursor: pointer; padding-block: 12px; font-size: 14px; }
+.activity-archive summary span { margin-left: 8px; color: var(--muted); font-size: 12px; }
+.activity-archive .activity-gallery { margin-top: 16px; }
 .life-gallery { width: 100%; max-width: 1264px; margin-inline: auto; }
 .life-gallery > div { margin-top: 60px; }
 .life-gallery h3 { font-size: 24px; font-weight: 600; text-transform: uppercase; text-align: center; margin: 0 0 36px; }
@@ -194,11 +223,18 @@ button:disabled { cursor: wait; opacity: 0.6; }
   .hero-portrait { width: 208px; }
   .project-visual:not(.is-website) { min-height: 340px; }
   .project-content { padding: 36px; }
+  .project-story-content { padding: 32px 36px; }
+  .project-story > summary { padding-inline: 36px; }
+  .project-media-gallery .photo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .project-build-details { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .photo-item { width: 224px; }
+  .activity-card { padding: 36px; }
+  .activity-gallery .photo-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .hackathon-card { padding: 36px; }
 }
 @media (min-width: 960px) {
   .project-card { flex-direction: row-reverse; }
+  .project-card.has-story { flex-wrap: wrap; }
   .project-card.is-alternate { flex-direction: row; }
   .project-visual { width: 52%; flex-shrink: 0; }
   .project-visual.is-website { padding: 28px; }
