@@ -48,10 +48,12 @@ The Vercel project `landing-thehnh` builds this repository's `main` branch.
 Update the public identity, metadata and genuine content modification date in
 `libs/seo.js`. See [SEO notes](docs/SEO.md) for configuration and validation.
 
-The Projects section starts with Highlights (5), followed by All projects (24),
+The Projects section starts with Highlights (3), followed by All projects (24),
 Engineering Projects (2), Open source (1), Websites (15), Mobile apps (5),
 Desktop apps (1), and Hackathons (2).
-Highlights is selected initially: TunisianPass, WeLockIn, Gustave Motors, A-BOT, and Cipher. Use
+Highlights is selected initially: TunisianPass, WeLockIn, and Gustave Motors. Cipher
+and A-BOT are explicitly excluded at the owner's request. Cipher remains in Mobile
+apps and Open source; A-BOT remains in Engineering Projects. Use
 `highlight: true` to include a project and `highlightDetails` for its additional
 labelled paragraphs. Gold borders, a hover/focus glow, and a small Framer Motion
 hover lift apply in the Highlights view. Reduced motion disables the lift.
@@ -156,7 +158,13 @@ as an audited secure messenger or claim a public app-store release.
 The owner identified Gustave Motors as the solar car awarded the Projet X 2023
 high-school prize, and A-BOT as the Projet X 2024 high-school prize project. The
 club's LinkedIn articles corroborate both results and Hedi's co-founder/president
-roles. Detailed individual engineering responsibilities are still to be supplied.
+roles. The owner's subsequent account takes precedence for personal responsibilities
+and the full presidency, from 2022 to the end of 2025. Both engineering stories now
+include his coordination, budget, purchasing, school liaison and practical work,
+alongside the team and mentors. The copy is a condensed personal narrative, not a
+full transcription. It uses rear-wheel drive for the car's driven rear wheels.
+A-BOT's proposed air-quality and Wi-Fi contact alerts are described as extensions,
+separately from the prototype's environmental sensing and interaction work.
 Sources:
 - https://www.linkedin.com/pulse/la-r%C3%A9volution-%C3%A9tudiante-de-linvention-dun-v%C3%A9hicule-21hxc/
 - https://www.linkedin.com/pulse/a-bot-linnovation-%C3%A9tudiante-contre-le-burn-out-club-ing%C3%A9nieur-lgf-koz2e/

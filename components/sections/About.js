@@ -9,6 +9,7 @@ export default function About() {
       <h2 className="section-title">About me</h2>
       <div className="about-copy">
         <p>I’m a Tunisian, second-year Computer Science student at EPFL. I started coding at eight, teaching myself as I went. Building things became my way of learning, whether that meant a website for a local business or a product of my own.</p>
+        <p>I co-founded and led my school’s engineering club from 2022 to the end of 2025. Building a solar-electric car with friends taught me to coordinate people, budgets and difficult decisions, with patient support from a mechatronics engineer and our technology teacher. It remains the project I’m most attached to.</p>
         <p>My first company, TunisianPass, taught me to work with restaurants and shops and turn an idea into a service people actually used. Since then, I have sold websites to companies and built apps around studying, fitness, and daily life.</p>
         <p>Hackathons give me another way to explore. At EPFL and START HACK, I worked on ideas as different as dating through Telegram and protecting customers from the wrong AI purchases.</p>
         <a href="#certificates" className="text-link">View my certificates &amp; awards</a>

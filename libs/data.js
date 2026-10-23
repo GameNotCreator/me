@@ -118,31 +118,46 @@ export const projectsData = [
     year: "2022–2023",
     status: "Engineering team project",
     description:
-      "After co-founding our school’s engineering club in 2022, I worked with students and mentors on Gustave Motors: a solar-electric car built around a custom chassis, recovered parts, batteries and a solar panel.",
-    role: "Engineering club co-founder · Team member",
+      "Gustave Motors is the project I’m most attached to. In 2022, a few friends and I wanted to build a solar-electric car. That idea became our school’s engineering club, a team of around twenty students, and a project that taught me how to lead by doing.",
+    role: "Club co-founder & president (2022–2025) · Project coordinator",
     outcome: "Projet X 2023 · High-school prize",
-    tags: ["Mechanical design", "Electronics", "Solar energy"],
+    tags: ["Team leadership", "3D modelling", "Electronics", "Solar energy"],
     imageUrl: "/images/Club/8.jpg",
     imageAlt: "Solar panel mounted on the metal chassis of the vehicle prototype",
     imageFit: "contain",
     imagePosition: "center",
     gallery: [
-      { src: "/images/Club/8.jpg", caption: "Solar panel mounted on the vehicle prototype.", fit: "contain" },
-      { src: "/images/Club/1.jpg", caption: "Engineering club members behind the solar vehicle prototype." },
-      { src: "/images/Club/24.jpg", caption: "Two team members beside the vehicle in the workshop." },
+      { src: "/images/Club/8.jpg", alt: "Solar panel mounted on a wheeled metal chassis", caption: "Gustave Motors: the solar panel mounted above our steel chassis.", fit: "contain" },
+      { src: "/images/Club/1.jpg", alt: "A group standing behind the solar vehicle prototype", caption: "Our engineering club team with the Gustave Motors prototype." },
+      { src: "/images/Club/24.jpg", alt: "Two people beside the solar vehicle in a workshop", caption: "Gustave Motors in the school workshop, where we developed the prototype." },
     ],
     link: "https://www.linkedin.com/pulse/la-r%C3%A9volution-%C3%A9tudiante-de-linvention-dun-v%C3%A9hicule-21hxc/",
     linkLabel: "Read article",
     story: [
       {
-        label: "Building the prototype",
+        label: "Taking responsibility",
         description:
-          "We designed the chassis, sourced reusable car parts, and tested the motor and batteries before assembling the drivetrain and electrical system.",
+          "Leading the club meant managing the budget, approving purchases, coordinating the team and staying in touch with the school administration. I also got involved in modelling, coding and sourcing parts, with guidance from a Tunisian mechatronics engineer and our technology teacher.",
       },
       {
-        label: "The competition and beyond",
+        label: "Learning before building",
         description:
-          "The car was not finished when the club received the high-school prize at Lycée Pierre Mendès-France on 25 May 2023. We later improved the brakes, indicators, wiring and dashboard.",
+          "We spent our first months learning how a car works and estimating the motor power our vehicle would need. We designed the steel chassis in 3D, then gave the school’s metalworker the drawings and specifications. Plenty of our decisions came through trying, checking and starting again.",
+      },
+      {
+        label: "Making the parts work together",
+        description:
+          "With a friend, I visited mechanics and scrapyards to find parts we could reuse: a steering rack, a steering wheel and a quad rear axle. We adapted Vespa wheels for the rear-wheel-drive system and bicycle wheels at the front. A metalworking specialist helped us machine the wheel fittings accurately.",
+      },
+      {
+        label: "The details that took patience",
+        description:
+          "We placed the lead-acid batteries under the seat to balance the car. One challenge was switching between charging them in parallel and driving with them in series, so the car had to stop to charge. We also added cable-operated disc braking, lights, a horn and a dashboard made with CNC tools.",
+      },
+      {
+        label: "What stayed with me",
+        description:
+          "Our prototype won the high-school prize at Projet X 2023 while we were still refining the car. I remember the long workshop nights and the last-minute preparations to transport it. Most of all, I’m grateful to the mentors and teammates who trusted us and helped turn an ambitious student idea into a vehicle we could drive.",
       },
     ],
     accent: "#9a774b",
@@ -151,12 +166,12 @@ export const projectsData = [
     id: "a-bot",
     title: "A-BOT",
     category: "engineering",
-    highlight: true,
+    highlight: false,
     year: "2023–2024",
     status: "Student robotics prototype",
     description:
-      "During my 2023–2024 term as club president, our team developed A-BOT, a desktop robot prototype exploring fatigue cues and break reminders with camera input, movement, a display and sound.",
-    role: "Engineering club co-founder · President (2023–2024)",
+      "A-BOT grew out of a question I had after an exhausting year of school, chess competitions and building Gustave Motors: could a desk companion help us notice when we need a break? With the club, I explored that idea through a small, cat-shaped robot.",
+    role: "Club co-founder & president (2022–2025) · Project coordinator",
     outcome: "Projet X 2024 · High-school prize",
     tags: ["Robotics", "HuskyLens", "micro:bit"],
     imageUrl: "/images/Club/6.jpg",
@@ -164,22 +179,32 @@ export const projectsData = [
     imageFit: "contain",
     imagePosition: "center",
     gallery: [
-      { src: "/images/Club/6.jpg", caption: "A-BOT with its cat-shaped body, displays and sensors.", fit: "contain" },
-      { src: "/images/Club/28.jpg", caption: "HuskyLens camera module during a face-detection test.", fit: "contain" },
-      { src: "/images/Club/30.jpg", caption: "Team members working beside a laptop and wired robot electronics." },
+      { src: "/images/Club/6.jpg", alt: "A blue cat-shaped robot with a camera, displays and front sensors", caption: "A-BOT’s cat-shaped shell brought together the camera, displays and sensors.", fit: "contain" },
+      { src: "/images/Club/28.jpg", alt: "HuskyLens camera displaying a face-detection test", caption: "Testing the vision camera used in our exploration of fatigue cues.", fit: "contain" },
+      { src: "/images/Club/30.jpg", alt: "Two people beside a laptop and wired robot electronics", caption: "Wiring and assembling A-BOT with the team in the technology lab." },
     ],
     link: "https://www.linkedin.com/pulse/a-bot-linnovation-%C3%A9tudiante-contre-le-burn-out-club-ing%C3%A9nieur-lgf-koz2e/",
     linkLabel: "Read article",
     story: [
       {
-        label: "Building the robot",
+        label: "A quiet companion",
         description:
-          "We combined a HuskyLens vision sensor, a wheeled micro:bit platform, and obstacle and drop sensors. The prototype used visual and sound cues to suggest breaks.",
+          "We wanted a friendly presence that could sit on a desk without interrupting someone’s concentration. The cat-shaped body, moving arms and expressive eyes made that idea tangible. Its purpose was to encourage us to pay attention to our working habits.",
       },
       {
-        label: "Refining the design",
+        label: "Making it more autonomous",
         description:
-          "The team added a cat-shaped shell, servo-driven arms and OLED eyes while refining the assembly. A-BOT received the high-school prize at Lycée Gustave Flaubert, La Marsa, on 25 May 2024.",
+          "Our prototype combined a vision camera, temperature and light sensors, a work timer and a display. We experimented with signs of drowsiness, obstacle avoidance and desk-edge detection. We also worked on a charging dock so the companion could stay on the desk with less intervention.",
+      },
+      {
+        label: "Ideas to handle carefully",
+        description:
+          "Air-quality monitoring and Wi-Fi alerts to a trusted contact were extensions we discussed. They raised questions about privacy, consent and how far a companion should intervene. A-BOT remained an experimental student project about study habits and well-being.",
+      },
+      {
+        label: "My part in the project",
+        description:
+          "I continued to coordinate the team, budget and purchasing, working alongside our engineer and technology teacher on design and implementation. We received the high-school prize at Projet X 2024. For me, the interesting part was connecting robotics, interaction design and the experience of a long working day.",
       },
     ],
     accent: "#537f92",
@@ -257,7 +282,7 @@ export const projectsData = [
   {
     id: "cipher",
     title: "Cipher",
-    highlight: true,
+    highlight: false,
     category: "mobile",
     categories: ["mobile", "opensource"],
     status: "Experimental · Open source",

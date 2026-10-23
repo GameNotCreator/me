@@ -24,7 +24,7 @@ export default function Hero() {
         </h1>
         <m.p className="hero-study" initial={{ opacity: 0.75 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: reduceMotion ? 0 : 0.2 }}>EPFL student · Second-year Computer Science</m.p>
         <p className="hero-role">Tunisian · Self-taught developer · Founder</p>
-        <p className="hero-description">From my first business in Tunisia to student tools and iOS apps, I build projects that grow out of everyday needs and my own curiosity.</p>
+        <p className="hero-description">I build things I’m curious about, from student apps to a solar-electric car made with friends at school. That car is still my favourite project. I’ve learned as much from the people around me and the decisions along the way as from the things we built.</p>
         <m.div className="hero-actions" initial={{ opacity: 0.8, y: reduceMotion ? 0 : 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.3 }}>
           <a className="button button-primary" href="#contact">Get in touch</a>
           <a className="button button-secondary" href="/resume.pdf" target="_blank" rel="noopener noreferrer">See my resume</a>
