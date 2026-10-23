@@ -94,10 +94,21 @@ const galleryDescriptions = {
   },
 };
 
+// Owner-confirmed context for the four selected photos from his Karpov game.
+// Keep the visual alt text separate from this personal event context.
+const galleryCaptions = {
+  Chess: {
+    "2.jpg": "A chess-knight trophy from my personal archive.",
+    "10.jpg": "The hall at the chess event where I played against Karpov.",
+    "1.jpg": "A group photo from the event where I played against Karpov.",
+    "4.jpg": "A moment from my game against Karpov.",
+  },
+};
+
 export const galleryPhotos = Object.entries(galleryDescriptions).flatMap(([category, photos]) =>
   Object.entries(photos).map(([filename, description]) => ({
     src: `/images/${category}/${filename}`,
     alt: description,
-    caption: description,
+    caption: galleryCaptions[category]?.[filename] || description,
   }))
 );

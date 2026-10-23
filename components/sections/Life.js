@@ -10,8 +10,8 @@ const activities = [
   },
   {
     title: "Chess",
-    description: "Games, events, and chessboards from my personal archive.",
-    featured: ["7.jpg", "10.jpg", "13.jpg", "2.jpg"],
+    description: "A few memories from my chess journey, including the chance to play against Anatoly Karpov.",
+    featured: ["2.jpg", "10.jpg", "1.jpg", "4.jpg"],
   },
 ];
 

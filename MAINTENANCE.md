@@ -39,6 +39,7 @@ it when updating the framework.
 - Engineering photos are attached to the corresponding project in `libs/data.js` using `gallery`. Originals in Club remain unchanged. Native build-story disclosures open initially in Engineering Projects; their photo buttons reuse the accessible gallery dialog.
 - `libs/certificates.js` contains only supplied documents. The Certificates & Awards section currently shows the genuine Projet X 2023 participation certificate photograph, with an enlarged preview and an original-document link. It is a participation certificate, not an award certificate. Add further certificates and diploma scans when supplied.
 - `libs/gallery-photos.js` provides descriptive English alt text and preview captions for the original Life photos. Keep these descriptions consistent with the actual photographs.
+- On 23 October 2026, the owner selected Chess photos 2, 10, 1 and 4, in that order, as memories of his game against Karpov. The event date was not supplied. Their personal captions remain separate from neutral visual alt text; do not infer a game result or award.
 - `public/resume.pdf` is the updated one-page English CV, with the supplied Swiss contact details, EPFL studies, portfolio link, client work, released products, and hackathons. The original supplied CV is preserved outside the repository.
 
 ## SEO and production
