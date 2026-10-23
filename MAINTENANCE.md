@@ -182,7 +182,10 @@ effectiveness claims. The 2025 article publication dates are not the project yea
 The supplied French Projet X 2024 diploma explicitly states "Prix lycéen" and
 21 May 2024; use that date rather than the date previously quoted from the article.
 The 2023 document is participation only. Gustave Motors' prize claim is supported
-separately by the owner's account and the club article. The supplied recommendation
+separately by the owner's account and the club article. At the owner's request,
+the 2023 card and case study explicitly say that the team won the high-school
+prize with Gustave Motors; the scan and its alt text retain the actual document type.
+The supplied recommendation
 letter supports the exact attributed English quotation by Alexandre Picaud,
 Assistant Principal at Lycée Gustave Flaubert. Its original contact details and
 unfinished template footer are not published. The Interact certificate is undated;

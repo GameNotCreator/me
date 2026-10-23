@@ -120,7 +120,7 @@ export const projectsData = [
     description:
       "Gustave Motors is the project I’m most attached to. In 2022, a few friends and I wanted to build a solar-electric car. That idea became our school’s engineering club, a team of around twenty students, and a project that taught me how to lead by doing.",
     role: "Club co-founder & president (2022–2025) · Project coordinator",
-    outcome: "Projet X 2023 · High-school prize",
+    outcome: "Winner · Projet X 2023 high-school prize",
     tags: ["Team leadership", "3D modelling", "Electronics", "Solar energy"],
     imageUrl: "/images/Club/21.jpg",
     imageAlt: "Side view of a person seated at the wheel of the vehicle prototype outdoors",
@@ -144,7 +144,7 @@ export const projectsData = [
       facts: [
         { value: "~20", label: "Students recruited in our first year" },
         { value: "2022–2025", label: "My club presidency" },
-        { value: "Projet X 2023", label: "High-school prize" },
+        { value: "Projet X 2023", label: "Winner · High-school prize" },
       ],
       chapters: [
         { title: "Starting a club and learning to build.", storyIndexes: [0, 1], photoIndexes: [0, 1] },

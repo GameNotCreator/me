@@ -52,9 +52,9 @@ export default function ProjectCaseStudy({ id, title, story, gallery, caseStudy,
             <ImageGallery galleries={{ Documents: [caseStudy.document.preview] }}
               showCategoryTitles={false} className={styles.documentPreview} />
             <div className={styles.documentCopy}>
-              <p className={styles.sourceLabel}><FileText size={14} aria-hidden="true" />Participation certificate</p>
+              <p className={styles.sourceLabel}><FileText size={14} aria-hidden="true" />Winner · High-school prize</p>
               <h6>Projet X 2023</h6>
-              <p>25 May 2023 · Tunis<br />My participation in the second edition of Projet X.</p>
+              <p>We won the high-school prize at Projet X 2023 with Gustave Motors.<br />25 May 2023 · Tunis</p>
               <a className={styles.sourceLink} href={caseStudy.document.href} target="_blank" rel="noopener noreferrer"
                 aria-label="Open Projet X 2023 participation certificate PDF (opens in a new tab)">
                 Open certificate <ArrowUpRight size={16} aria-hidden="true" />

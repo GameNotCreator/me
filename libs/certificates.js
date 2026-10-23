@@ -22,11 +22,11 @@ export const certificatesData = [
   {
     id: "projet-x-2023-participation",
     title: "Projet X 2023",
-    type: "Participation certificate",
+    type: "Winner · High-school prize",
     date: "2023-05-25",
     dateLabel: "25 May 2023",
     location: "Lycée Pierre Mendès France · Tunis",
-    description: "My participation certificate from the second edition of Projet X, where we presented Gustave Motors after months of learning and building together.",
+    description: "We won the high-school prize at Projet X 2023 with Gustave Motors, the solar-electric car we built with our engineering club. This certificate records my participation in that edition.",
     href: "/certificates/projet-x-2023.pdf",
     format: "PDF · French",
     document: {
