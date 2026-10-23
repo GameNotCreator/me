@@ -36,8 +36,8 @@ it when updating the framework.
 - Add project photos to `public/projects/`, import them in `libs/data.js`, and set the relevant entry's `imageUrl`. Website captures live in `public/previews/` and use `previewType: "website"` with `previewDomain`. Entries without a supplied image use their names as visual cards.
 - The original Work files (25 original photos plus 19 supplied photos) remain in `public/images/Work/`, with supplied captions in `libs/work-photos.js`. They are no longer displayed as a general-purpose feed. Saudade still uses its T-shirt photo on its project card. `node scripts/prepare-work-photos.cjs /path/to/extracted/photos` regenerates the supplied web copies.
 - Life now contains Charity and Chess activity cards, each with four featured photos and a collapsed archive. Update the filename selections in `components/sections/Life.js` when the owner chooses which photos to exclude. The page explicitly selects these two albums from the gallery metadata; it no longer automatically publishes every image folder.
-- Engineering photos are attached to the corresponding project in `libs/data.js` using `gallery`. Originals in Club remain unchanged. Native build-story disclosures open initially in Engineering Projects; their photo buttons reuse the accessible gallery dialog.
-- `libs/certificates.js` contains only supplied documents. The Certificates & Awards section currently shows the genuine Projet X 2023 participation certificate photograph, with an enlarged preview and an original-document link. It is a participation certificate, not an award certificate. Add further certificates and diploma scans when supplied.
+- Engineering photos are attached to the corresponding project in `libs/data.js` using `gallery`. Originals in Club remain unchanged. Gustave Motors has an always-visible case study with three illustrated chapters, six build photos, a participation certificate preview, the club article and an attributed recommendation excerpt. `ProjectCaseStudy.js` and its CSS module render this layout; `caseStudy` holds its chapter and document references. A-BOT retains the native build-story disclosure, open initially in Engineering Projects.
+- `libs/certificates.js` contains five supplied certificates and two 2024 academic score reports. Certificates & Awards presents the Projet X 2024 high-school prize, Projet X 2023 participation, Interact leadership, Nuit du Code Python participation and GOMYCODE AI course completion. The academic reports sit in a collapsed disclosure. `public/certificates/` contains optimized, upright scans and PDF copies; both test reports are rasterized after masking identifying numbers, with the IELTS birth date also removed. Do not replace them with the unredacted originals. French certificates are linked once; their certified English translations do not create duplicate awards.
 - `libs/gallery-photos.js` provides descriptive English alt text and preview captions for the original Life photos. Keep these descriptions consistent with the actual photographs.
 - On 23 October 2026, the owner selected Chess photos 2, 10, 1 and 4, in that order, as memories of his game against Karpov. The event date was not supplied. Their personal captions remain separate from neutral visual alt text; do not infer a game result or award.
 - `public/resume.pdf` is the updated one-page English CV, with the supplied Swiss contact details, EPFL studies, portfolio link, client work, released products, and hackathons. The original supplied CV is preserved outside the repository.
@@ -89,8 +89,12 @@ data. Keep its credentials in the demo block displayed on the project card.
 The floating navigation remains Home, About, Projects, Skills, Life, Contact.
 Certificates & Awards appears after Skills, with a direct link in About.
 `story` provides labelled build details, and `gallery` supplies associated photos.
-The first story block becomes the Highlights overview without duplicating it in
-the disclosure; Engineering Projects opens both full build stories by default.
+When `caseStudy` is present, all story paragraphs appear once in its illustrated
+chapters, without a disclosure in any filter. For other projects, the first story
+block becomes the Highlights overview without duplicating it in the disclosure;
+Engineering Projects opens the remaining native build story by default.
+ImageGallery's optional `showCaptions` displays personal context beneath the
+thumbnails; `imageSizes` matches the actual rendered image width.
 
 ## Contact
 
@@ -169,7 +173,19 @@ separately from the prototype's environmental sensing and interaction work.
 Sources:
 - https://www.linkedin.com/pulse/la-r%C3%A9volution-%C3%A9tudiante-de-linvention-dun-v%C3%A9hicule-21hxc/
 - https://www.linkedin.com/pulse/a-bot-linnovation-%C3%A9tudiante-contre-le-burn-out-club-ing%C3%A9nieur-lgf-koz2e/
-Gustave Motors uses Club photos 8, 1 and 24; A-BOT uses 6, 28 and 30. Their
-original files are unchanged. The A-BOT selections match images in the article.
+Gustave Motors uses Club photo 21 as its cover, with 18, 25, 27, 22, 24 and 1 in
+the build story. A-BOT uses 6, 28 and 30. Their original files are unchanged.
+The A-BOT selections match images in the article.
 Keep the robot described as an experimental student prototype without medical
 effectiveness claims. The 2025 article publication dates are not the project years.
+
+The supplied French Projet X 2024 diploma explicitly states "Prix lycéen" and
+21 May 2024; use that date rather than the date previously quoted from the article.
+The 2023 document is participation only. Gustave Motors' prize claim is supported
+separately by the owner's account and the club article. The supplied recommendation
+letter supports the exact attributed English quotation by Alexandre Picaud,
+Assistant Principal at Lycée Gustave Flaubert. Its original contact details and
+unfinished template footer are not published. The Interact certificate is undated;
+Nuit du Code 2024 confirms participation in Python, without a ranking. GOMYCODE's
+course ran 3 March–30 June 2023. IELTS (7.0, CEFR C1 as printed) and SAT (1330,
+Mathematics 700, Reading and Writing 630) remain dated 2024 results.

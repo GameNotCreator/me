@@ -1,6 +1,24 @@
-// Only documents already present in the portfolio belong in this collection.
-// Competition results are described separately in the engineering projects.
+// Optimized copies of documents supplied by Hedi. Test reports are rasterized
+// after removing personal identifiers and birth dates from the public copy.
 export const certificatesData = [
+  {
+    id: "projet-x-2024-award",
+    title: "Projet X 2024",
+    type: "High-school prize",
+    featured: true,
+    date: "2024-05-21",
+    dateLabel: "21 May 2024",
+    location: "La Marsa · Tunisia",
+    description: "The high-school prize awarded for A-BOT, the desk companion we built with the engineering club. I coordinated the team, budget and purchasing alongside our mentors.",
+    href: "/certificates/projet-x-2024.pdf",
+    format: "PDF · French",
+    document: {
+      src: "/certificates/projet-x-2024.webp",
+      alt: "Hedi Fourati’s Projet X certificate bearing the words Prix lycéen, dated 21 May 2024",
+      caption: "Projet X 2024 · Prix lycéen · 21 May 2024 · Original French certificate",
+      fit: "contain",
+    },
+  },
   {
     id: "projet-x-2023-participation",
     title: "Projet X 2023",
@@ -8,13 +26,97 @@ export const certificatesData = [
     date: "2023-05-25",
     dateLabel: "25 May 2023",
     location: "Lycée Pierre Mendès France · Tunis",
-    description:
-      "A record of my participation in the second edition of Projet X, “Les Sciences en action”.",
+    description: "My participation certificate from the second edition of Projet X, where we presented Gustave Motors after months of learning and building together.",
+    href: "/certificates/projet-x-2023.pdf",
+    format: "PDF · French",
     document: {
-      src: "/images/Club/26.jpg",
-      alt: "Hedi Fourati’s participation certificate for the second edition of Projet X, Les Sciences en action, in Tunis on 25 May 2023",
-      caption:
-        "Participation certificate · Projet X, 2nd edition: Les Sciences en action · Lycée Pierre Mendès France, Tunis · 25 May 2023",
+      src: "/certificates/projet-x-2023.webp",
+      alt: "Hedi Fourati’s participation certificate for the second edition of Projet X in Tunis on 25 May 2023",
+      caption: "Participation certificate · Projet X, 2nd edition: Les Sciences en action · Tunis · 25 May 2023",
+      fit: "contain",
+    },
+  },
+  {
+    id: "interact-leadership",
+    title: "Interact Marsa Mind",
+    type: "Community leadership",
+    location: "Interact Marsa Mind · Tunisia",
+    description: "Recognition of my contribution as head of the International–National Committee, working with the club on its community activities.",
+    href: "/certificates/interact.pdf",
+    format: "PDF · French",
+    document: {
+      src: "/certificates/interact.webp",
+      alt: "Interact Marsa Mind certificate recognizing Hedi Fourati as head of the International–National Committee",
+      caption: "Interact Marsa Mind · Certificate of merit · Head of the International–National Committee · Undated document",
+      fit: "contain",
+    },
+  },
+  {
+    id: "nuit-du-code-2024",
+    title: "Nuit du Code 2024",
+    type: "Python programming",
+    date: "2024",
+    dateLabel: "2024",
+    location: "Lycée Gustave Flaubert · La Marsa",
+    description: "A certificate of active participation in Nuit du Code 2024, programming in Python with my school.",
+    href: "/certificates/nuit-du-code.pdf",
+    format: "PDF · French",
+    document: {
+      src: "/certificates/nuit-du-code.webp",
+      alt: "Hedi Fourati’s certificate of participation in Nuit du Code 2024 in Python",
+      caption: "Nuit du Code 2024 · Python participation · Lycée Gustave Flaubert, La Marsa",
+      fit: "contain",
+    },
+  },
+  {
+    id: "gomycode-ai-2023",
+    title: "Introduction to AI",
+    type: "Course completion",
+    date: "2023-06-30",
+    dateLabel: "3 March – 30 June 2023",
+    location: "GOMYCODE",
+    description: "I completed GOMYCODE’s Introduction to Artificial Intelligence course, held from 3 March to 30 June 2023.",
+    href: "/certificates/gomycode-ai.webp",
+    format: "Image · English",
+    document: {
+      src: "/certificates/gomycode-ai.webp",
+      alt: "GOMYCODE certificate of completion in Introduction to Artificial Intelligence for Hedi Fourati, March to June 2023",
+      caption: "GOMYCODE · Introduction to Artificial Intelligence · Course completed 3 March–30 June 2023",
+      fit: "contain",
+    },
+  },
+];
+
+export const academicResultsData = [
+  {
+    id: "ielts-2024",
+    title: "IELTS Academic",
+    type: "Test result · October 2024",
+    score: "7.0 / 9",
+    detail: "CEFR C1 on the 2024 report",
+    description: "Academic English examination taken on 23 October 2024.",
+    href: "/certificates/ielts-2024-redacted.pdf",
+    format: "PDF · Redacted copy",
+    document: {
+      src: "/certificates/ielts-2024-redacted.webp",
+      alt: "Redacted IELTS Academic report showing Hedi Fourati’s overall band score of 7.0 and CEFR C1 in October 2024",
+      caption: "IELTS Academic · 23 October 2024 · Overall 7.0/9 · CEFR C1 as reported in 2024 · Personal identifiers removed",
+      fit: "contain",
+    },
+  },
+  {
+    id: "sat-2024",
+    title: "SAT",
+    type: "Test result · August 2024",
+    score: "1330 / 1600",
+    detail: "Mathematics: 700 / 800",
+    description: "Taken on 24 August 2024. Reading and Writing: 630 / 800.",
+    href: "/certificates/sat-2024-redacted.pdf",
+    format: "PDF · Redacted copy",
+    document: {
+      src: "/certificates/sat-2024-redacted.webp",
+      alt: "Redacted SAT report showing Hedi Fourati’s total score of 1330 and mathematics score of 700 in August 2024",
+      caption: "SAT · 24 August 2024 · Total 1330/1600 · Mathematics 700/800 · Personal record locator removed",
       fit: "contain",
     },
   },

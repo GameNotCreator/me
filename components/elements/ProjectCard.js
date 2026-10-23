@@ -2,17 +2,18 @@
 import Image from "next/image";
 import { ArrowDown, ArrowUpRight, ChevronDown, Code2, Globe, Sparkles } from "lucide-react";
 import ImageGallery from "@/components/elements/Images/ImageGallery";
+import ProjectCaseStudy from "@/components/elements/ProjectCaseStudy";
 import * as m from "framer-motion/m";
 import { useReducedMotion } from "framer-motion";
 
-export default function ProjectCard({ id, title, subtitle, year, description, role, outcome, tags, imageUrl, imageAlt, imageFit, imagePosition, previewType, previewDomain, previewStack, link, status, appStoreLink, appStoreLabel = "App Store (iOS)", linkLabel, demoCredentials, sourceLinks = [], availability, highlightDetails = [], highlightLabel = "Selected project", story = [], gallery = [], expandedStory = false, highlighted = false, hidden = false, alternate = false }) {
+export default function ProjectCard({ id, title, subtitle, year, description, role, outcome, tags, imageUrl, imageAlt, imageFit, imagePosition, previewType, previewDomain, previewStack, link, status, appStoreLink, appStoreLabel = "App Store (iOS)", linkLabel, demoCredentials, sourceLinks = [], availability, highlightDetails = [], highlightLabel = "Selected project", story = [], gallery = [], caseStudy, expandedStory = false, highlighted = false, hidden = false, alternate = false }) {
   const reduceMotion = useReducedMotion();
   const isWebsite = previewType === "website" && Boolean(imageUrl);
   const previewWidth = imageUrl?.width || 1440;
   const previewHeight = imageUrl?.height || 1000;
   const websiteLabel = linkLabel || (appStoreLink ? "Website" : "View Project");
   const hasStory = story.length > 0 || gallery.length > 0;
-  const useStoryOverview = highlighted && highlightDetails.length === 0 && story.length > 0;
+  const useStoryOverview = highlighted && !caseStudy && highlightDetails.length === 0 && story.length > 0;
   const selectedDetails = useStoryOverview ? story.slice(0, 1) : highlightDetails;
   const buildDetails = useStoryOverview ? story.slice(1) : story;
   const linkFeedback = reduceMotion ? {} : { whileHover: { scale: 1.025 }, whileTap: { scale: 0.98 } };
@@ -68,7 +69,7 @@ export default function ProjectCard({ id, title, subtitle, year, description, ro
           {sourceLinks.map(({ label, href }) => <m.a key={href} href={href} target="_blank" rel="noopener noreferrer" className="button button-secondary" aria-label={`${label}: ${title} (opens in a new tab)`} {...linkFeedback} transition={{ duration: 0.15 }}>{label}<ArrowUpRight size={16} aria-hidden="true" /></m.a>)}
         </div>}
       </div>
-      {hasStory && <details className="project-story" open={expandedStory}>
+      {caseStudy ? <ProjectCaseStudy id={id} title={title} story={story} gallery={gallery} caseStudy={caseStudy} articleLink={link} /> : hasStory && <details className="project-story" open={expandedStory}>
         <summary><span>Build story & photos{gallery.length > 0 && <span className="project-story-count">{gallery.length} photos</span>}</span><ChevronDown size={18} aria-hidden="true" /></summary>
         <div className="project-story-content">
           {buildDetails.length > 0 && <dl className="project-build-details">

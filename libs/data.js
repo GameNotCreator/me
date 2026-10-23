@@ -122,17 +122,45 @@ export const projectsData = [
     role: "Club co-founder & president (2022–2025) · Project coordinator",
     outcome: "Projet X 2023 · High-school prize",
     tags: ["Team leadership", "3D modelling", "Electronics", "Solar energy"],
-    imageUrl: "/images/Club/8.jpg",
-    imageAlt: "Solar panel mounted on the metal chassis of the vehicle prototype",
+    imageUrl: "/images/Club/21.jpg",
+    imageAlt: "Side view of a person seated at the wheel of the vehicle prototype outdoors",
     imageFit: "contain",
     imagePosition: "center",
     gallery: [
-      { src: "/images/Club/8.jpg", alt: "Solar panel mounted on a wheeled metal chassis", caption: "Gustave Motors: the solar panel mounted above our steel chassis.", fit: "contain" },
-      { src: "/images/Club/1.jpg", alt: "A group standing behind the solar vehicle prototype", caption: "Our engineering club team with the Gustave Motors prototype." },
-      { src: "/images/Club/24.jpg", alt: "Two people beside the solar vehicle in a workshop", caption: "Gustave Motors in the school workshop, where we developed the prototype." },
+      { src: "/images/Club/18.jpg", alt: "Three people facing rows of salvaged metal and vehicle parts in a scrapyard", caption: "Looking for parts we could reuse.", fit: "contain" },
+      { src: "/images/Club/25.jpg", alt: "Vehicle chassis, seat and steering wheel surrounded by tools in a workshop at night", caption: "One of the long nights in the school workshop.", fit: "contain" },
+      { src: "/images/Club/27.jpg", alt: "Close-up of hands working beside the chain drive, rear axle and wheels", caption: "Making the rear axle, chain and wheels work together.", fit: "contain" },
+      { src: "/images/Club/22.jpg", alt: "Two people beside the steering wheel and seat of the unfinished vehicle in a workshop", caption: "Learning by doing, with help in the workshop.", fit: "contain" },
+      { src: "/images/Club/24.jpg", alt: "Two people beside a vehicle prototype with a solar panel mounted at the front", caption: "Bringing the solar panel and the vehicle together.", fit: "contain" },
+      { src: "/images/Club/1.jpg", alt: "A group standing behind the solar vehicle prototype, holding documents", caption: "Our engineering club team with Gustave Motors.", fit: "contain" },
     ],
     link: "https://www.linkedin.com/pulse/la-r%C3%A9volution-%C3%A9tudiante-de-linvention-dun-v%C3%A9hicule-21hxc/",
     linkLabel: "Read article",
+    sourceLinks: [
+      { label: "Participation certificate", href: "/certificates/projet-x-2023.pdf" },
+    ],
+    caseStudy: {
+      title: "From a school idea to a car we could drive.",
+      facts: [
+        { value: "~20", label: "Students recruited in our first year" },
+        { value: "2022–2025", label: "My club presidency" },
+        { value: "Projet X 2023", label: "High-school prize" },
+      ],
+      chapters: [
+        { title: "Starting a club and learning to build.", storyIndexes: [0, 1], photoIndexes: [0, 1] },
+        { title: "Making salvaged parts work together.", storyIndexes: [2, 3], photoIndexes: [2, 3] },
+        { title: "The project I still come back to.", storyIndexes: [4], photoIndexes: [4, 5] },
+      ],
+      document: {
+        href: "/certificates/projet-x-2023.pdf",
+        preview: {
+          src: "/certificates/projet-x-2023.webp",
+          alt: "Hedi Fourati’s Projet X participation certificate dated 25 May 2023",
+          caption: "Projet X 2023 · Participation certificate · 25 May 2023",
+          fit: "contain",
+        },
+      },
+    },
     story: [
       {
         label: "Taking responsibility",
@@ -185,6 +213,9 @@ export const projectsData = [
     ],
     link: "https://www.linkedin.com/pulse/a-bot-linnovation-%C3%A9tudiante-contre-le-burn-out-club-ing%C3%A9nieur-lgf-koz2e/",
     linkLabel: "Read article",
+    sourceLinks: [
+      { label: "View award certificate", href: "/certificates/projet-x-2024.pdf" },
+    ],
     story: [
       {
         label: "A quiet companion",

@@ -4,7 +4,7 @@ import Image from "next/image";
 import * as m from "framer-motion/m";
 import { useReducedMotion } from "framer-motion";
 
-export default function ImageGallery({ galleries, className = "", showCategoryTitles = true }) {
+export default function ImageGallery({ galleries, className = "", showCategoryTitles = true, showCaptions = false, imageSizes = "(min-width: 640px) 224px, 128px" }) {
   const [selected, setSelected] = useState(null);
   const dialogRef = useRef(null);
   const openerRef = useRef(null);
@@ -48,8 +48,9 @@ export default function ImageGallery({ galleries, className = "", showCategoryTi
                   setSelected({ src, alt, caption, aspectRatio });
                 }}
               >
-                <Image src={src} alt={alt} width={600} height={600} sizes="(min-width: 640px) 224px, 128px" style={fit ? { objectFit: fit } : undefined} />
+                <Image src={src} alt={alt} width={600} height={600} sizes={imageSizes} style={fit ? { objectFit: fit } : undefined} />
               </m.button>
+              {showCaptions && caption && <figcaption>{caption}</figcaption>}
             </figure>;
           })}
         </div>
