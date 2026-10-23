@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { Sparkles } from "lucide-react";
 import { hackathonsData, projectsData } from "@/libs/data";
 import ProjectCard from "@/components/elements/ProjectCard";
 import { useSectionInView } from "@/libs/hooks";
@@ -8,14 +9,18 @@ import * as m from "framer-motion/m";
 import { useReducedMotion } from "framer-motion";
 
 const categories = [
+  { id: "highlights", label: "Highlights", description: "These are the projects I’ve learned the most from and put the most thought and energy into. They’re the ones I’m especially proud of." },
   { id: "all", label: "All projects" },
+  { id: "opensource", label: "Open source", description: "Projects I’m building in the open. Explore the mobile app and its backend, read the code, or contribute on GitHub." },
   { id: "website", label: "Websites" },
   { id: "mobile", label: "Mobile apps" },
   { id: "desktop", label: "Desktop apps" },
   { id: "hackathon", label: "Hackathons" },
 ];
 
-const isInCategory = (project, id) => (project.categories ?? [project.category]).includes(id);
+const isInCategory = (project, id) => id === "highlights"
+  ? Boolean(project.highlight)
+  : (project.categories ?? [project.category]).includes(id);
 
 const categoryCount = (id) => id === "all"
   ? projectsData.length + hackathonsData.length
@@ -23,12 +28,13 @@ const categoryCount = (id) => id === "all"
 
 export default function Projects() {
   const { ref } = useSectionInView("projects", 0.01);
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [activeCategory, setActiveCategory] = useState("highlights");
   const reduceMotion = useReducedMotion();
   const visibleProjects = projectsData.filter((project) => activeCategory === "all" || isInCategory(project, activeCategory));
   const showHackathons = activeCategory === "all" || activeCategory === "hackathon";
   const resultCount = visibleProjects.length + (showHackathons ? hackathonsData.length : 0);
-  const activeLabel = categories.find((category) => category.id === activeCategory).label;
+  const active = categories.find((category) => category.id === activeCategory);
+  const visibleIndexes = new Map(visibleProjects.map((project, index) => [project.id, index]));
   return (
     <section id="projects" ref={ref} className="projects-section portfolio-section text-center">
       <h2 className="section-title">Projects</h2>
@@ -37,22 +43,26 @@ export default function Projects() {
         {categories.map(({ id, label }) => <button
           key={id}
           type="button"
-          className="project-filter"
+          className={`project-filter${id === "highlights" ? " project-filter-highlight" : ""}`}
           aria-pressed={activeCategory === id}
           aria-controls="project-results"
           aria-label={`${label}, ${categoryCount(id)} ${categoryCount(id) === 1 ? "project" : "projects"}`}
           onClick={() => setActiveCategory(id)}
-        >{label}<span className="project-filter-count" aria-hidden="true">{categoryCount(id)}</span></button>)}
+        >{id === "highlights" && <Sparkles size={14} aria-hidden="true" />}{label}<span className="project-filter-count" aria-hidden="true">{categoryCount(id)}</span></button>)}
       </div>
-      <p className="project-filter-summary" role="status" aria-live="polite" aria-atomic="true">{resultCount} {resultCount === 1 ? "project" : "projects"} · {activeLabel}</p>
+      {active.description && <p className="project-category-copy">{active.description}</p>}
+      <p className="project-filter-summary" role="status" aria-live="polite" aria-atomic="true">{resultCount} {resultCount === 1 ? "project" : "projects"} · {active.label}</p>
       <m.div id="project-results" className="project-results" key={activeCategory}
         initial={reduceMotion ? false : { opacity: 0.8, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: reduceMotion ? 0 : 0.24 }}>
-        {visibleProjects.length > 0 && <div className="project-list">
-          {visibleProjects.map((project) => <ProjectCard key={project.id} {...project} />)}
-        </div>}
-        {showHackathons && <Hackathons />}
+        <div className="project-list" hidden={visibleProjects.length === 0}>
+          {projectsData.map((project) => <ProjectCard key={project.id} {...project}
+            hidden={!visibleIndexes.has(project.id)}
+            alternate={visibleIndexes.get(project.id) % 2 === 1}
+            highlighted={activeCategory === "highlights" && Boolean(project.highlight)} />)}
+        </div>
+        <Hackathons hidden={!showHackathons} />
       </m.div>
     </section>
   );

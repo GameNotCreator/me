@@ -4,11 +4,11 @@ import * as m from "framer-motion/m";
 import { useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
-export default function Hackathons() {
+export default function Hackathons({ hidden = false }) {
   const reduceMotion = useReducedMotion();
   const linkFeedback = reduceMotion ? {} : { whileHover: { scale: 1.025 }, whileTap: { scale: 0.98 } };
   return (
-    <div className="hackathons-block" aria-labelledby="hackathons-heading">
+    <div className="hackathons-block" hidden={hidden} aria-labelledby="hackathons-heading">
       <h3 id="hackathons-heading" className="section-title">Hackathons</h3>
       <p className="section-copy">Two challenges I explored with a team, in Lausanne and St. Gallen.</p>
       <div className="hackathon-list">

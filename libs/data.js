@@ -60,6 +60,13 @@ export const projectsData = [
   {
     id: "tunisianpass",
     title: "TunisianPass",
+    highlight: true,
+    highlightDetails: [
+      {
+        label: "Building a business",
+        description: "TunisianPass pushed me to think beyond development: who the product was for, why a business would use it, and how to turn an idea into a paid service.",
+      },
+    ],
     category: "website",
     status: "First business",
     description:
@@ -77,6 +84,13 @@ export const projectsData = [
   {
     id: "welockin",
     title: "WeLockIn",
+    highlight: true,
+    highlightDetails: [
+      {
+        label: "One idea, several platforms",
+        description: "Working on a desktop app and an iOS version means adapting the same focus experience to different devices. The website brings those versions together and explains what I’m building.",
+      },
+    ],
     category: "desktop",
     categories: ["desktop", "mobile"],
     status: "Desktop app · iOS on the App Store",
@@ -163,6 +177,39 @@ export const projectsData = [
     link: "https://saudade.thehnh.tech/",
     appStoreLink: "https://apps.apple.com/ch/app/picture-me-by-saudade/id6765511449",
     accent: "#9c6571",
+  },
+  {
+    id: "cipher",
+    title: "Cipher",
+    highlight: true,
+    category: "mobile",
+    categories: ["mobile", "opensource"],
+    status: "Experimental · Open source",
+    description:
+      "I’m developing Cipher, a mobile messaging app with one-to-one conversations and an encrypted vault for profile data and private keys. An optional AI assistant connects through the backend to Groq.",
+    role: "Mobile app & backend development",
+    outcome: "Experimental project · MIT-licensed mobile code",
+    tags: ["React Native", "Expo", "TypeScript", "Express", "MongoDB"],
+    previewStack: ["React Native + Expo", "Express + MongoDB"],
+    link: "https://github.com/thehnh-tech/mobile-cypher",
+    linkLabel: "Mobile source",
+    sourceLinks: [
+      { label: "Backend source", href: "https://github.com/thehnh-tech/backend-cypher" },
+    ],
+    availability: "Open-source mobile app · Development build",
+    highlightDetails: [
+      {
+        label: "Architecture",
+        description:
+          "The TypeScript app uses React Native and Expo, with an Express/MongoDB API for accounts and messages. Conversations update through REST requests and HTTP long polling.",
+      },
+      {
+        label: "Encryption experiment",
+        description:
+          "Vaults and direct-message payloads are encrypted on the client. This custom protocol is experimental and has not been independently audited. Optional AI chats are processed in plaintext by the backend and Groq.",
+      },
+    ],
+    accent: "#58bfb1",
   },
   {
     id: "mathparty",

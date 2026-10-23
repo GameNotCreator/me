@@ -46,21 +46,33 @@ The Vercel project `landing-thehnh` builds this repository's `main` branch.
 Update the public identity, metadata and genuine content modification date in
 `libs/seo.js`. See [SEO notes](docs/SEO.md) for configuration and validation.
 
-The Projects section has category filters: All projects, Websites (15), Mobile apps (4),
-Desktop apps (1), and Hackathons (2). All 21 entries (19 projects and 2 hackathons) are
-rendered by default, preserving their server-rendered content and the original
-alternating card layout. Category counts
-come from the data, and the selected filter announces the number of results.
+The Projects section starts with Highlights (3), followed by All projects (22),
+Open source (1), Websites (15), Mobile apps (5), Desktop apps (1), and Hackathons (2).
+Highlights is selected initially: TunisianPass, WeLockIn, and Cipher. Use
+`highlight: true` to include a project and `highlightDetails` for its additional
+labelled paragraphs. Gold borders, a hover/focus glow, and a small Framer Motion
+hover lift apply in the Highlights view. Reduced motion disables the lift.
+All 22 entries (20 projects and 2 hackathons) remain in the server-rendered HTML.
+Non-selected cards use `hidden`, including for assistive technology and keyboard
+navigation. Category counts come from the data, and the selected filter announces
+the number of results. The alternating layout uses each visible card's index.
 Project priority follows the manual order in `projectsData`, and filtering preserves
 that order. Keep the exact relative order of the 17 projects that preceded MathParty
 and FinanceTracker. MathParty sits after Picture me by Saudade and before FocusGym;
 FinanceTracker stays last as a prototype for a freelance opportunity that did not go ahead.
+Cipher sits after Saudade and before MathParty. The existing projects' relative
+order is preserved in every filter.
 Use `category: "website"`, `"mobile"`, or `"desktop"` in `libs/data.js`; hackathons
 remain in `hackathonsData`, with optional `projectLink` and `previewLink` fields.
 Projects can optionally provide a `categories` array instead of relying on their single
 `category`. WeLockIn uses `category: "desktop"` and `categories: ["desktop", "mobile"]`,
 so it appears in both relevant filters and only once in All projects. Filter counts
 therefore overlap and should not be added together.
+Cipher uses `categories: ["mobile", "opensource"]` so one card appears in both
+categories and only once in All projects. `sourceLinks` adds the separate backend
+repository button. `availability` describes its development build without an App
+Store or Android release claim. `previewStack` displays a labelled architecture
+illustration; it is not a screenshot of the app.
 Mobile cards link directly to their iOS App Store pages and state that Android is not
 available yet. Development status still appears on projects that are in progress.
 The optional `appStoreLabel` changes the App Store button text; WeLockIn uses
@@ -127,3 +139,10 @@ the owner on 22 October 2026. Its concept is a live, turn-based maths game for
 students, with problems from France's Course aux nombres to solve before a bomb
 explodes. Keep its status and copy explicit about the work in progress; the
 "Preview project" button opens the current site.
+Cipher's description and technical details were checked against the public
+READMEs at `thehnh-tech/mobile-cypher` and `thehnh-tech/backend-cypher` on 23 October
+2026. The README calls the project Cipher. The mobile code is MIT-licensed; do not
+imply a license for the separate backend repository. It is experimental, with a
+custom cryptographic protocol that has not been independently audited. Optional
+AI chats are processed in plaintext by the backend and Groq. Do not describe it
+as an audited secure messenger or claim a public app-store release.
