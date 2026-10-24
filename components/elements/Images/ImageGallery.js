@@ -1,10 +1,12 @@
 "use client";
+import { useLocale } from "@/libs/LocaleProvider";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import * as m from "framer-motion/m";
 import { useReducedMotion } from "framer-motion";
 
 export default function ImageGallery({ galleries, className = "", showCategoryTitles = true, showCaptions = false, imageSizes = "(min-width: 640px) 224px, 128px" }) {
+  const { locale, t } = useLocale();
   const [selected, setSelected] = useState(null);
   const dialogRef = useRef(null);
   const openerRef = useRef(null);
@@ -26,16 +28,17 @@ export default function ImageGallery({ galleries, className = "", showCategoryTi
   return (
     <div className={`life-gallery ${className}`}>
       {Object.entries(galleries).map(([category, photos]) => <div key={category}>
-        {showCategoryTitles && <h3>{category}</h3>}
+        {showCategoryTitles && <h3>{t(category)}</h3>}
         <div className="photo-grid">
           {photos.map((photo, index) => {
             const { src, alt: description, caption, fit } = typeof photo === "string" ? { src: photo } : photo;
-            const alt = description || caption || `${category}, photo ${index + 1}`;
+            const alt = t(description || caption || `${t(category)}, photo ${index + 1}`);
+            const captionText = t(caption);
             return <figure key={src} className="photo-item">
               <m.button
                 className="photo-button"
                 type="button"
-                aria-label={`Open photo: ${alt}`}
+                aria-label={`${t("Open photo")}: ${alt}`}
                 whileHover={reduceMotion ? undefined : { scale: 1.025 }}
                 whileTap={reduceMotion ? undefined : { scale: 0.98 }}
                 transition={{ duration: 0.12, ease: "easeOut" }}
@@ -45,17 +48,17 @@ export default function ImageGallery({ galleries, className = "", showCategoryTi
                   const aspectRatio = thumbnail?.naturalWidth && thumbnail?.naturalHeight
                     ? thumbnail.naturalWidth / thumbnail.naturalHeight
                     : 1;
-                  setSelected({ src, alt, caption, aspectRatio });
+                  setSelected({ src, alt, caption: captionText, aspectRatio });
                 }}
               >
                 <Image src={src} alt={alt} width={600} height={600} sizes={imageSizes} style={fit ? { objectFit: fit } : undefined} />
               </m.button>
-              {showCaptions && caption && <figcaption>{caption}</figcaption>}
+              {showCaptions && captionText && <figcaption>{captionText}</figcaption>}
             </figure>;
           })}
         </div>
       </div>)}
-      <dialog ref={dialogRef} className="photo-modal" aria-label={selected?.alt || "Photo preview"} onClose={() => {
+      <dialog ref={dialogRef} className="photo-modal" aria-label={selected?.alt || t("Photo preview")} onClose={() => {
         setSelected(null);
         openerRef.current?.focus({ preventScroll: true });
       }} onClick={(event) => {
@@ -89,7 +92,7 @@ export default function ImageGallery({ galleries, className = "", showCategoryTi
             />
           </div>
           {selected.caption && <p className="photo-caption">{selected.caption}</p>}
-          <button type="button" className="button button-primary" autoFocus onClick={() => setSelected(null)}>CLOSE PREVIEW</button>
+          <button type="button" className="button button-primary" autoFocus onClick={() => setSelected(null)}>{t("CLOSE PREVIEW")}</button>
         </m.div>}
       </dialog>
     </div>

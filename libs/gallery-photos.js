@@ -18,7 +18,7 @@ const galleryDescriptions = {
   },
   Chess: {
     "1.jpg": "A group posing together in a room with blue lighting.",
-    "2.jpg": "A white chess-knight trophy resting on a table.",
+    "2.jpg": "A chess-knight trophy engraved with Hedi Fourati’s name and the year 2023.",
     "3.jpg": "Three people posing together in a room.",
     "4.jpg": "Players seated at chessboards while another person leans over a table.",
     "5.jpg": "People gathered around chessboards on red-covered tables.",
@@ -97,11 +97,35 @@ const galleryDescriptions = {
 // Owner-confirmed context for the four selected photos from his Karpov game.
 // Keep the visual alt text separate from this personal event context.
 const galleryCaptions = {
+  Charity: {
+    "1.jpg": "Around the table during one of our community gatherings.",
+    "2.jpg": "Time together during a community visit.",
+    "3.jpg": "A shared moment from our community activities.",
+    "4.jpg": "The group together during one of our community visits.",
+    "5.jpg": "Tables prepared for an outdoor gathering.",
+    "6.png": "Meeting a classroom of students during one of our community visits.",
+    "7.jpg": "Food and everyday supplies gathered for our community activities.",
+    "8.jpg": "An outdoor gathering with the group.",
+    "9.jpg": "Sorting clothes and preparing supplies together.",
+    "10.png": "A group activity under the trees.",
+    "11.jpg": "A moment of conversation during a community visit.",
+    "12.jpg": "A group photo to remember one of our community visits.",
+    "13.jpg": "Organizing papers and supplies for our community activities.",
+  },
   Chess: {
-    "2.jpg": "A chess-knight trophy from my personal archive.",
-    "10.jpg": "The hall at the chess event where I played against Karpov.",
-    "1.jpg": "A group photo from the event where I played against Karpov.",
-    "4.jpg": "A moment from my game against Karpov.",
+    "1.jpg": "A group photo from the event where I played against Anatoly Karpov.",
+    "2.jpg": "My 2023 chess trophy, engraved with my name.",
+    "3.jpg": "Another group photo from my chess archive.",
+    "4.jpg": "A moment from my game against Anatoly Karpov.",
+    "5.jpg": "Players gathered around the boards during a chess event.",
+    "6.jpg": "A bouquet being presented during a chess gathering.",
+    "7.jpg": "A closer view of a game in progress.",
+    "8.jpg": "A portrait across the chessboard.",
+    "9.jpg": "A classroom setting for a game of chess.",
+    "10.jpg": "The playing hall at the event where I faced Karpov.",
+    "11.jpg": "A photograph at a chess event, in front of the organizers’ backdrop.",
+    "12.jpg": "Across the board at a chess event.",
+    "13.jpg": "An outdoor chess event, with boards set up under the trees.",
   },
 };
 

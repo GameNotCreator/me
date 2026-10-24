@@ -12,6 +12,7 @@ import saudadePhoto from "@/public/images/Work/saudade-qr-detail.webp";
 import welockPreview from "@/public/previews/welock.webp";
 import financeTrackerPreview from "@/public/previews/finance-tracker.webp";
 import mathpartyPreview from "@/public/previews/mathparty.webp";
+import { gustaveEvidencePhotos } from "@/libs/gustave-evidence-photos";
 
 export const links = [
   {
@@ -120,7 +121,7 @@ export const projectsData = [
     description:
       "Gustave Motors is the project I’m most attached to. In 2022, a few friends and I wanted to build a solar-electric car. That idea became our school’s engineering club, a team of around twenty students, and a project that taught me how to lead by doing.",
     role: "Club co-founder & president (2022–2025) · Project coordinator",
-    outcome: "Winner · Projet X 2023 high-school prize",
+    outcome: "Winner · Projet X 2023 inter-zone high-school prize",
     tags: ["Team leadership", "3D modelling", "Electronics", "Solar energy"],
     imageUrl: "/images/Club/21.jpg",
     imageAlt: "Side view of a person seated at the wheel of the vehicle prototype outdoors",
@@ -143,16 +144,19 @@ export const projectsData = [
       title: "From a school idea to a car we could drive.",
       facts: [
         { value: "~20", label: "Students recruited in our first year" },
-        { value: "2022–2025", label: "My club presidency" },
-        { value: "Projet X 2023", label: "Winner · High-school prize" },
+        { value: "2022–2025", label: "My club presidency", href: "#engineering-club-presidency" },
+        { value: "Projet X 2023", label: "Winner · Inter-zone high-school prize" },
       ],
+      eventGallery: gustaveEvidencePhotos,
       chapters: [
-        { title: "Starting a club and learning to build.", storyIndexes: [0, 1], photoIndexes: [0, 1] },
-        { title: "Making salvaged parts work together.", storyIndexes: [2, 3], photoIndexes: [2, 3] },
-        { title: "The project I still come back to.", storyIndexes: [4], photoIndexes: [4, 5] },
+        { title: "We won the high-school prize.", label: "The prize", storyIndexes: [4], photoCollection: "event", photoIndexes: [0, 6] },
+        { title: "Starting a club and learning to build.", label: "Starting out", storyIndexes: [0, 1], photoIndexes: [0, 1] },
+        { title: "Making salvaged parts work together.", label: "The build", storyIndexes: [2, 3], photoIndexes: [2, 3] },
+        { title: "Presenting the car at Projet X.", label: "At Projet X", storyIndexes: [5], photoCollection: "event", photoIndexes: [1, 2, 3, 4, 5] },
       ],
       document: {
         href: "/certificates/projet-x-2023.pdf",
+        translationHref: "/certificates/projet-x-2023-sworn-en.pdf",
         preview: {
           src: "/certificates/projet-x-2023.webp",
           alt: "Hedi Fourati’s Projet X participation certificate dated 25 May 2023",
@@ -186,6 +190,11 @@ export const projectsData = [
         label: "What stayed with me",
         description:
           "Our prototype won the high-school prize at Projet X 2023 while we were still refining the car. I remember the long workshop nights and the last-minute preparations to transport it. Most of all, I’m grateful to the mentors and teammates who trusted us and helped turn an ambitious student idea into a vehicle we could drive.",
+      },
+      {
+        label: "Sharing the work",
+        description:
+          "At Projet X 2023, we presented our solar-electric car, explained the choices behind it and shared our work with visitors. These photos bring back the team, the prototype and the people who helped us get there.",
       },
     ],
     accent: "#9a774b",

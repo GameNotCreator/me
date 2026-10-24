@@ -5,7 +5,7 @@ export const site = {
   description:
     "Tunisian web and app developer, founder, and EPFL Computer Science student. Explore Hedi Fourati's client websites, desktop and iOS apps, and projects.",
   // Change this only when the public profile or project content is updated.
-  updatedAt: "2026-10-23",
+  updatedAt: "2026-10-24",
   github: "https://github.com/GameNotCreator",
 };
 

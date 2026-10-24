@@ -16,6 +16,10 @@
 .description { margin: 0 0 20px; color: var(--muted); font-size: 14px; line-height: 1.75; }
 .documentLink { display: inline-flex; align-items: center; align-self: start; flex-wrap: wrap; gap: 8px; min-height: 44px; margin-top: auto; color: var(--foreground); font-size: 12px; font-weight: 600; text-decoration: none; }
 .documentLink:hover { color: var(--highlight-ink); }
+.documentLinks { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: auto; }
+.documentLinks .documentLink { margin-top: 0; }
+.translationLink { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; color: var(--highlight-ink); font-size: 11px; font-weight: 600; text-decoration: none; }
+.translationLink:hover { text-decoration: underline; text-underline-offset: 4px; }
 .format { padding-left: 8px; border-left: 1px solid var(--border); color: var(--muted); font-size: 10px; font-weight: 400; }
 .featured { border-color: var(--highlight-border); box-shadow: 0 4px 20px var(--highlight-glow); }
 .featured .preview { background: var(--highlight-tint); }

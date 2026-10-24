@@ -11,6 +11,7 @@ export const certificatesData = [
     location: "La Marsa · Tunisia",
     description: "The high-school prize awarded for A-BOT, the desk companion we built with the engineering club. I coordinated the team, budget and purchasing alongside our mentors.",
     href: "/certificates/projet-x-2024.pdf",
+    translationHref: "/certificates/projet-x-2024-sworn-en.pdf",
     format: "PDF · French",
     document: {
       src: "/certificates/projet-x-2024.webp",
@@ -28,11 +29,28 @@ export const certificatesData = [
     location: "Lycée Pierre Mendès France · Tunis",
     description: "We won the high-school prize at Projet X 2023 with Gustave Motors, the solar-electric car we built with our engineering club. This certificate records my participation in that edition.",
     href: "/certificates/projet-x-2023.pdf",
+    translationHref: "/certificates/projet-x-2023-sworn-en.pdf",
     format: "PDF · French",
     document: {
       src: "/certificates/projet-x-2023.webp",
       alt: "Hedi Fourati’s participation certificate for the second edition of Projet X in Tunis on 25 May 2023",
       caption: "Participation certificate · Projet X, 2nd edition: Les Sciences en action · Tunis · 25 May 2023",
+      fit: "contain",
+    },
+  },
+  {
+    id: "engineering-club-presidency",
+    title: "Engineering Club LGF",
+    type: "Club presidency",
+    dateLabel: "Presidency: 2022–2025",
+    location: "Lycée Gustave Flaubert · La Marsa",
+    description: "A certificate of merit recognizing my role as president of the school’s engineering club from 2022 to 2025.",
+    href: "/certificates/engineering-club-presidency.webp",
+    format: "Image · French",
+    document: {
+      src: "/certificates/engineering-club-presidency.webp",
+      alt: "Engineering Club LGF certificate of merit recognizing Hedi Fourati’s presidency from 2022 to 2025",
+      caption: "Engineering Club LGF · Certificate of merit · Club presidency, 2022–2025",
       fit: "contain",
     },
   },
@@ -43,6 +61,7 @@ export const certificatesData = [
     location: "Interact Marsa Mind · Tunisia",
     description: "Recognition of my contribution as head of the International–National Committee, working with the club on its community activities.",
     href: "/certificates/interact.pdf",
+    translationHref: "/certificates/interact-sworn-en.pdf",
     format: "PDF · French",
     document: {
       src: "/certificates/interact.webp",
@@ -60,6 +79,7 @@ export const certificatesData = [
     location: "Lycée Gustave Flaubert · La Marsa",
     description: "A certificate of active participation in Nuit du Code 2024, programming in Python with my school.",
     href: "/certificates/nuit-du-code.pdf",
+    translationHref: "/certificates/nuit-du-code-sworn-en.pdf",
     format: "PDF · French",
     document: {
       src: "/certificates/nuit-du-code.webp",

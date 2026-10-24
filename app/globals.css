@@ -45,7 +45,7 @@
 }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
-html { scroll-behavior: smooth; scroll-padding-top: 116px; color-scheme: light dark; scrollbar-color: var(--border) var(--background); }
+html { scroll-behavior: smooth; scroll-padding-top: 170px; color-scheme: light dark; scrollbar-color: var(--border) var(--background); }
 body { margin: 0; background: var(--background); color: var(--foreground); font-family: Arial, Helvetica, sans-serif; line-height: 1.6; }
 ::selection { background: var(--tag); color: var(--foreground); }
 a, button, input, textarea { -webkit-tap-highlight-color: transparent; }
@@ -65,7 +65,7 @@ button:disabled { cursor: wait; opacity: 0.6; }
 .nav-links a > span:not(.active-nav-pill) { position: relative; z-index: 1; }
 .active-nav-pill { position: absolute; inset: 0; background: var(--selected); border-radius: 50px; }
 .nav-links a:hover { background: var(--surface); }
-.hero-section { min-height: 100svh; width: 100%; display: flex; justify-content: center; align-items: center; padding: 148px 24px 64px; text-align: center; background: var(--hero-background); border-bottom: 1px solid var(--border); }
+.hero-section { min-height: 100svh; width: 100%; display: flex; justify-content: center; align-items: center; padding: 184px 24px 64px; text-align: center; background: var(--hero-background); border-bottom: 1px solid var(--border); }
 .hero-content { max-width: 720px; width: 100%; }
 .hero-portrait { width: 168px; aspect-ratio: 1; margin: 0 auto 24px; border-radius: 50%; overflow: hidden; }
 .hero-content h1 { font-size: clamp(36px,6vw,60px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.15; margin: 0 0 16px; text-wrap: balance; }
@@ -90,6 +90,7 @@ button:disabled { cursor: wait; opacity: 0.6; }
 .portrait-image { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
 .about-copy { width: 100%; max-width: 650px; font-size: 16px; line-height: 1.85; font-weight: 500; }
 .about-copy p { margin: 0 0 20px; }
+.about-document-links { display: flex; flex-wrap: wrap; gap: 4px 24px; }
 .projects-section { display: flex; flex-direction: column; align-items: center; }
 .project-filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 70rem; margin: 0 0 20px; }
 .project-filter { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 16px; border: 1px solid var(--border); border-radius: 50px; background: var(--background); color: var(--foreground); font-size: 14px; line-height: 1.4; }
@@ -211,10 +212,18 @@ button:disabled { cursor: wait; opacity: 0.6; }
 .contact-actions { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 16px; margin-top: 32px; }
 .contact-email { overflow-wrap: anywhere; }
 .site-footer { width: 100%; padding: 32px 24px max(40px,env(safe-area-inset-bottom)); text-align: center; color: var(--muted); }
+.language-switcher { position: fixed; z-index: 101; top: max(118px,calc(env(safe-area-inset-top) + 110px)); right: 16px; display: flex; padding: 3px; background: var(--nav-background); backdrop-filter: blur(8px); border: 1px solid var(--border); border-radius: 50px; box-shadow: 0 4px 16px #00000008; }
+.language-switcher a { display: flex; align-items: center; justify-content: center; min-width: 40px; min-height: 40px; border-radius: 50px; color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: .05em; text-decoration: none; }
+.language-switcher a[aria-current="page"] { color: var(--highlight-ink); background: var(--highlight-tint); }
+.language-switcher a:hover { background: var(--surface); color: var(--foreground); }
+html[lang="fr"] .nav-links a { padding-inline: 8px; font-size: 12px; }
+@media (max-width: 359px) { html[lang="fr"] .nav-links a { padding-inline: 0; font-size: 11px; } }
+@media (min-width: 640px) { .language-switcher { top: 90px; right: 24px; } html[lang="fr"] .nav-links a { padding-inline: 10px; } }
+@media (min-width: 960px) { .language-switcher { top: 27px; } }
 .site-footer small, .site-footer p { font-size: 12px; }
 .site-footer p { margin-top: 8px; }
 @media (min-width: 640px) {
-  html { scroll-padding-top: 100px; }
+  html { scroll-padding-top: 150px; }
   .site-nav { top: 24px; width: min(656px,calc(100% - 32px)); padding: 5px 12px; border-radius: 50px; }
   .nav-links { display: flex; justify-content: space-between; gap: 8px; max-width: none; }
   .nav-links a { padding-inline: 14px; }
@@ -233,6 +242,7 @@ button:disabled { cursor: wait; opacity: 0.6; }
   .hackathon-card { padding: 36px; }
 }
 @media (min-width: 960px) {
+  html { scroll-padding-top: 100px; }
   .project-card { flex-direction: row-reverse; }
   .project-card.has-story { flex-wrap: wrap; }
   .project-card.is-alternate { flex-direction: row; }

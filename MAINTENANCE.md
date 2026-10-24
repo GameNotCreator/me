@@ -36,8 +36,9 @@ it when updating the framework.
 - Add project photos to `public/projects/`, import them in `libs/data.js`, and set the relevant entry's `imageUrl`. Website captures live in `public/previews/` and use `previewType: "website"` with `previewDomain`. Entries without a supplied image use their names as visual cards.
 - The original Work files (25 original photos plus 19 supplied photos) remain in `public/images/Work/`, with supplied captions in `libs/work-photos.js`. They are no longer displayed as a general-purpose feed. Saudade still uses its T-shirt photo on its project card. `node scripts/prepare-work-photos.cjs /path/to/extracted/photos` regenerates the supplied web copies.
 - Life now contains Charity and Chess activity cards, each with four featured photos and a collapsed archive. Update the filename selections in `components/sections/Life.js` when the owner chooses which photos to exclude. The page explicitly selects these two albums from the gallery metadata; it no longer automatically publishes every image folder.
-- Engineering photos are attached to the corresponding project in `libs/data.js` using `gallery`. Originals in Club remain unchanged. Gustave Motors has an always-visible case study with three illustrated chapters, six build photos, a participation certificate preview, the club article and an attributed recommendation excerpt. `ProjectCaseStudy.js` and its CSS module render this layout; `caseStudy` holds its chapter and document references. A-BOT retains the native build-story disclosure, open initially in Engineering Projects.
-- `libs/certificates.js` contains five supplied certificates and two 2024 academic score reports. Certificates & Awards presents the Projet X 2024 high-school prize, Projet X 2023 participation, Interact leadership, Nuit du Code Python participation and GOMYCODE AI course completion. The academic reports sit in a collapsed disclosure. `public/certificates/` contains optimized, upright scans and PDF copies; both test reports are rasterized after masking identifying numbers, with the IELTS birth date also removed. Do not replace them with the unredacted originals. French certificates are linked once; their certified English translations do not create duplicate awards.
+- Engineering photos are attached to the corresponding project in `libs/data.js`. Gustave Motors now has four carousel chapters: the prize, starting the club, building, and presenting at Projet X. The trophy and podium photographs supplied on 24 October 2026 explicitly document the inter-zone high-school prize. `libs/gustave-evidence-photos.js` holds seven new photos and their EN/FR captions; original Club photos remain unchanged. The slider has previous/next controls, numbered pagination, swipe, pause/play and a 14-second interval. Manual interaction stops rotation; hovering, leaving the viewport or hiding the page pauses it. Reduced-motion preferences disable automatic rotation. Inactive slides remain rendered with `aria-hidden`, `inert` and hidden visibility; a CSS grid keeps their shared height stable. A-BOT retains its native build-story disclosure.
+- `libs/certificates.js` contains six supplied certificates and two 2024 score reports. The new club merit certificate records the 2022–2025 presidency. Four supplied certified English translations have separate "Sworn English translation" links; no other translation is described as sworn. Both test reports remain rasterized after masking identifying numbers and the IELTS birth date. Do not replace them with unredacted originals. Originals and translations describe the same achievements and do not create duplicate awards.
+- `libs/references.js` and `components/sections/References.js` provide the compact Recommendations & Experience section after Certificates. Two recommendation letters and four experience records use native disclosures, readable previews and public PDF copies. The assistant principal's French excerpt retains the complete French text; the supplied English passages are separate and are not a sworn translation. Lili Land is employment, Agile Platforms and Medianet are internship certificates, and Easy Business is a planned observation-placement agreement, not proof of completion. Public copies in `public/references/` mask identity numbers, birth dates, private addresses and family contacts before rasterization.
 - `libs/gallery-photos.js` provides descriptive English alt text and preview captions for the original Life photos. Keep these descriptions consistent with the actual photographs.
 - On 23 October 2026, the owner selected Chess photos 2, 10, 1 and 4, in that order, as memories of his game against Karpov. The event date was not supplied. Their personal captions remain separate from neutral visual alt text; do not infer a game result or award.
 - `public/resume.pdf` is the updated one-page English CV, with the supplied Swiss contact details, EPFL studies, portfolio link, client work, released products, and hackathons. The original supplied CV is preserved outside the repository.
@@ -90,11 +91,26 @@ The floating navigation remains Home, About, Projects, Skills, Life, Contact.
 Certificates & Awards appears after Skills, with a direct link in About.
 `story` provides labelled build details, and `gallery` supplies associated photos.
 When `caseStudy` is present, all story paragraphs appear once in its illustrated
-chapters, without a disclosure in any filter. For other projects, the first story
+carousel chapters, without a disclosure in any filter. For other projects, the first story
 block becomes the Highlights overview without duplicating it in the disclosure;
 Engineering Projects opens the remaining native build story by default.
 ImageGallery's optional `showCaptions` displays personal context beneath the
 thumbnails; `imageSizes` matches the actual rendered image width.
+
+## Languages
+
+English is the default route `/`; French is `/fr`. Two root layout groups render
+the correct HTML language, shared `SiteShell`, metadata and locale provider. Page
+content lives in `app/PortfolioPage.js`. The EN/FR switch preserves the section
+hash without redirecting visitors based on browser settings. Canonical, hreflang,
+OpenGraph, structured data and sitemap include both versions.
+
+`useLocale()` supplies `locale` and `t()` to client components. Exact-string French
+dictionaries live in `libs/fr.js`, `fr-journey.js`, `fr-photos.js` and
+`fr-documents.js`; `localizeRecord()` preserves IDs, URLs and technical tags.
+Update both languages when changing English source copy. Photo descriptions stay
+grounded in visible details and owner-confirmed context, without face-based
+identification of participants.
 
 ## Contact
 
@@ -173,8 +189,9 @@ separately from the prototype's environmental sensing and interaction work.
 Sources:
 - https://www.linkedin.com/pulse/la-r%C3%A9volution-%C3%A9tudiante-de-linvention-dun-v%C3%A9hicule-21hxc/
 - https://www.linkedin.com/pulse/a-bot-linnovation-%C3%A9tudiante-contre-le-burn-out-club-ing%C3%A9nieur-lgf-koz2e/
-Gustave Motors uses Club photo 21 as its cover, with 18, 25, 27, 22, 24 and 1 in
-the build story. A-BOT uses 6, 28 and 30. Their original files are unchanged.
+Gustave Motors uses Club photo 21 as its cover, with 18, 25, 27 and 22 in the build
+chapters plus the seven supplied trophy, presentation, team and podium photos.
+A-BOT uses 6, 28 and 30. Original files are unchanged.
 The A-BOT selections match images in the article.
 Keep the robot described as an experimental student prototype without medical
 effectiveness claims. The 2025 article publication dates are not the project years.

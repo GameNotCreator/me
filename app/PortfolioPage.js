@@ -5,10 +5,11 @@ import Skills from "../components/sections/Skills";
 import Contact from "../components/sections/Contact";
 import Life from "@/components/sections/Life";
 import Certificates from "@/components/sections/Certificates";
+import References from "@/components/sections/References";
 import { galleryPhotos } from "@/libs/gallery-photos";
-import { profileStructuredData } from "@/libs/seo";
+import { structuredDataForLocale } from "@/libs/metadata";
 
-export default function Home() {
+export default function PortfolioPage({ locale = "en" }) {
   // Curate the personal albums explicitly; engineering photos belong to projects.
   const galleries = Object.fromEntries(["Charity", "Chess"].map((category) => [
     category,
@@ -20,7 +21,7 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(profileStructuredData).replace(/</g, "\\u003c"),
+          __html: JSON.stringify(structuredDataForLocale(locale)).replace(/</g, "\\u003c"),
         }}
       />
       <Hero />
@@ -28,6 +29,7 @@ export default function Home() {
       <Projects />
       <Skills />
       <Certificates />
+      <References />
       <Life galleries={galleries} />
       <Contact />
     </main>
